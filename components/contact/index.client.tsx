@@ -1,9 +1,11 @@
 "use client";
 
+import { Turnstile } from "@marsidev/react-turnstile";
 import { ForwardIcon, LoaderIcon, MailIcon } from "lucide-react";
 import Form from "next/form";
 import Link from "next/link";
-import React, { useActionState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import React, { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -15,7 +17,6 @@ import { useLocalStorage } from "@/hooks/use-local-storage";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
-import { Turnstile } from "../turnstile";
 
 const texts = {
 	button: "Parlons de votre projet",
@@ -76,8 +77,12 @@ const initialState = {
 };
 
 function ContactForm({ className }: React.ComponentProps<"form">) {
+	const { theme } = useTheme();
+
 	const [state, action, isPending] = useActionState(sendEmail, initialState);
 	const [form, setForm] = useLocalStorage("form", { email: "", message: "" });
+
+	const [token, setToken] = useState<string | null>(null);
 
 	useEffect(() => {
 		if (state.success) {
@@ -91,6 +96,8 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
+
+	const disabledSubmit = (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !token) || isPending;
 
 	return (
 		<Form action={action} className={cn("grid items-start gap-6", className)}>
@@ -131,11 +138,28 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 				.
 			</p>
 
-			<div className="flex justify-center">
-				<Turnstile />
-				<Button className="w-full" disabled={isPending} size="lg" type="submit" variant="outline">
-					Envoyer
-					{isPending ? <LoaderIcon className="size-3.5 animate-spin" /> : <ForwardIcon className="size-3.5" />}
+			<div className="flex flex-col items-center justify-center gap-4">
+				{process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+					<Turnstile
+						onError={() => setToken(null)}
+						onSuccess={setToken}
+						options={{
+							size: "flexible",
+							language: "fr",
+							theme: theme === "dark" ? "dark" : "light",
+						}}
+						siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+					/>
+				)}
+				<Button className="w-full" disabled={disabledSubmit} size="lg" type="submit" variant="outline">
+					{disabledSubmit ? (
+						<LoaderIcon className="size-3.5 animate-spin" />
+					) : (
+						<>
+							Envoyer
+							<ForwardIcon className="size-3.5" />
+						</>
+					)}
 				</Button>
 			</div>
 		</Form>

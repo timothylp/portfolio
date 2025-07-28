@@ -15,6 +15,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendEmail(_prevState: FormState, formData: FormData): Promise<FormState> {
 	const email = String(formData.get("email") || "").trim();
 	const message = String(formData.get("message") || "").trim();
+	const token = String(formData.get("cf-turnstile-response") || "").trim();
 
 	if (process.env.EMAIL_ENABLED === "false") {
 		return { success: false, error: "Les emails sont désactivés." };
@@ -28,7 +29,6 @@ export async function sendEmail(_prevState: FormState, formData: FormData): Prom
 		return { success: false, error: "Les champs email et message sont requis." };
 	}
 
-	const token = String(formData.get("cf-turnstile-response") || "").trim();
 	if (!token) {
 		return { success: false, error: "Veuillez vérifier que vous n'êtes pas un robot." };
 	}
