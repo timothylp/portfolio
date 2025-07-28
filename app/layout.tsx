@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/footer";
+import { RichSnippets } from "@/components/rich-snippets";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { BASE_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
-import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -53,8 +54,14 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const isUmamiEnabled = Boolean(process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_URL);
+
 	return (
 		<html className={cn(geistSans.variable, geistMono.variable, "text-pretty antialiased")} lang="fr">
+			<head>
+				<RichSnippets />
+				{isUmamiEnabled ? <script async data-website-id={process.env.UMAMI_WEBSITE_ID} src={process.env.UMAMI_URL} /> : null}
+			</head>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange enableSystem>
 					<div className="mx-4 my-8 max-w-xl space-y-16 lg:mx-auto">

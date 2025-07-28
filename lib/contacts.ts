@@ -1,7 +1,9 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { EmailTemplate } from "@/components/email-template";
+import { verifyTurnstile } from "./turnstile";
 
 type FormState = {
 	success: boolean;
@@ -24,6 +26,17 @@ export async function sendEmail(_prevState: FormState, formData: FormData): Prom
 
 	if (!(email && message)) {
 		return { success: false, error: "Les champs email et message sont requis." };
+	}
+
+	const token = String(formData.get("cf-turnstile-response") || "").trim();
+	if (!token) {
+		return { success: false, error: "Veuillez vérifier que vous n'êtes pas un robot." };
+	}
+
+	const remoteip = (await headers()).get("x-real-ip");
+	const isHuman = await verifyTurnstile(token, remoteip);
+	if (!isHuman) {
+		return { success: false, error: "Veuillez vérifier que vous n'êtes pas un robot." };
 	}
 
 	const { data, error } = await resend.emails.send({

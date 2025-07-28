@@ -15,6 +15,7 @@ import { useLocalStorage } from "@/hooks/use-local-storage";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
+import { Turnstile } from "../turnstile";
 
 const texts = {
 	button: "Parlons de votre projet",
@@ -130,10 +131,13 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 				.
 			</p>
 
-			<Button disabled={isPending} size="lg" type="submit" variant="outline">
-				Envoyer
-				{isPending ? <LoaderIcon className="size-3.5 animate-spin" /> : <ForwardIcon className="size-3.5" />}
-			</Button>
+			<div className="flex justify-center">
+				<Turnstile />
+				<Button className="w-full" disabled={isPending} size="lg" type="submit" variant="outline">
+					Envoyer
+					{isPending ? <LoaderIcon className="size-3.5 animate-spin" /> : <ForwardIcon className="size-3.5" />}
+				</Button>
+			</div>
 		</Form>
 	);
 }
