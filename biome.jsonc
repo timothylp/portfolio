@@ -1,0 +1,64 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+	"extends": ["ultracite"],
+	"formatter": {
+		"indentWidth": 4,
+		"lineWidth": 160
+	},
+	"linter": {
+		"rules": {
+			"style": {
+				"useBlockStatements": "off"
+			},
+			"complexity": {
+				"noExcessiveCognitiveComplexity": {
+					"level": "warn",
+					"options": {
+						"maxAllowedComplexity": 25
+					}
+				}
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noConsole": {
+					"level": "warn",
+					"options": {
+						"allow": ["error", "warn", "info"]
+					}
+				}
+			},
+			"nursery": {
+				"useJsonImportAttribute": "off"
+			}
+		},
+		"includes": ["**", "!**/globals.css"]
+	},
+	"javascript": {
+		"globals": ["React"],
+		"formatter": {
+			"indentStyle": "tab",
+			"indentWidth": 4,
+			"lineWidth": 160,
+			"quoteStyle": "double",
+			"jsxQuoteStyle": "double"
+		}
+	},
+	"css": {
+		"formatter": {
+			"indentStyle": "tab",
+			"indentWidth": 4,
+			"lineWidth": 160,
+			"quoteStyle": "double"
+		}
+	},
+	"json": {
+		"formatter": {
+			"indentStyle": "tab",
+			"indentWidth": 4,
+			"lineWidth": 160
+		}
+	},
+	"files": {
+		"includes": ["**", "!**/node_modules", "!**/dist", "!**/.next"]
+	}
+}
