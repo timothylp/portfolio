@@ -7,14 +7,13 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import React, { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useLocalStorage, useMediaQuery } from "usehooks-ts";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useLocalStorage } from "@/hooks/use-local-storage";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +25,7 @@ const texts = {
 
 export function ContactClient({ className }: React.ComponentProps<"button">) {
 	const [open, setOpen] = React.useState(false);
-	const isDesktop = useMediaQuery("(min-width: 768px)");
+	const isDesktop = useMediaQuery("(min-width: 768px)", { initializeWithValue: false });
 
 	if (isDesktop) {
 		return (
@@ -42,7 +41,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 						<DialogTitle>{texts.title}</DialogTitle>
 						<DialogDescription className="whitespace-pre-line">{texts.description}</DialogDescription>
 					</DialogHeader>
-					<ContactForm />
+					<ContactForm setOpen={setOpen} />
 				</DialogContent>
 			</Dialog>
 		);
@@ -60,7 +59,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 					<DrawerTitle>{texts.title}</DrawerTitle>
 					<DrawerDescription className="whitespace-pre-line">{texts.description}</DrawerDescription>
 				</DrawerHeader>
-				<ContactForm className="px-4" />
+				<ContactForm className="px-4" setOpen={setOpen} />
 				<DrawerFooter className="pt-2">
 					<DrawerClose asChild>
 						<Button variant="secondary">Annuler</Button>
@@ -76,7 +75,7 @@ const initialState = {
 	error: "",
 };
 
-function ContactForm({ className }: React.ComponentProps<"form">) {
+function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { setOpen: (open: boolean) => void }) {
 	const { resolvedTheme } = useTheme();
 
 	const [state, action, isPending] = useActionState(sendEmail, initialState);
@@ -90,8 +89,9 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 			toast.success("Votre message a été envoyé avec succès", {
 				description: "Je vous répondrai dans les plus brefs délais",
 			});
+			setOpen(false);
 		}
-	}, [state.success, setForm]);
+	}, [state.success, setForm, setOpen]);
 
 	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -152,7 +152,7 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 					/>
 				)}
 				<Button className="w-full" disabled={disabledSubmit} size="lg" type="submit" variant="outline">
-					{disabledSubmit ? (
+					{isPending ? (
 						<LoaderIcon className="size-3.5 animate-spin" />
 					) : (
 						<>
