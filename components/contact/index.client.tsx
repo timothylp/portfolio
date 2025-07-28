@@ -77,7 +77,7 @@ const initialState = {
 };
 
 function ContactForm({ className }: React.ComponentProps<"form">) {
-	const { theme } = useTheme();
+	const { resolvedTheme } = useTheme();
 
 	const [state, action, isPending] = useActionState(sendEmail, initialState);
 	const [form, setForm] = useLocalStorage("form", { email: "", message: "" });
@@ -146,7 +146,7 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 						options={{
 							size: "flexible",
 							language: "fr",
-							theme: theme === "dark" ? "dark" : "light",
+							theme: resolvedTheme === "dark" ? "dark" : "light",
 						}}
 						siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
 					/>

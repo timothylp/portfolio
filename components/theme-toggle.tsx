@@ -5,9 +5,9 @@ import { Button } from "./ui/button";
 
 const THEMES = ["light", "dark", "system"] as const;
 const THEME_LABELS: Record<string, string> = {
-	light: "Light",
-	dark: "Dark",
-	system: "System",
+	light: "Clair",
+	dark: "Sombre",
+	system: "Système",
 };
 
 export function ThemeToggle() {
@@ -19,9 +19,13 @@ export function ThemeToggle() {
 		setTheme(THEMES[nextIndex]);
 	};
 
+	if (!theme) {
+		return null;
+	}
+
 	return (
 		<Button onClick={cycleTheme} size="sm" type="button" variant="ghost">
-			{THEME_LABELS[theme || "light"]}
+			{THEME_LABELS[theme]}
 		</Button>
 	);
 }
