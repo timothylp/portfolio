@@ -6,5 +6,13 @@ export default function sitemap() {
 			url: BASE_URL,
 			lastModified: new Date().toISOString().split("T")[0],
 		},
+		{
+			url: `${BASE_URL}/politique-de-confidentialite`,
+			lastModified: new Date().toISOString().split("T")[0],
+		},
+		{
+			url: `${BASE_URL}/mentions-legales`,
+			lastModified: new Date().toISOString().split("T")[0],
+		},
 	];
 }

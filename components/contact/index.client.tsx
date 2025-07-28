@@ -132,7 +132,7 @@ function ContactForm({ className }: React.ComponentProps<"form">) {
 
 			<p className="text-muted-foreground text-xs">
 				En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre{" "}
-				<Link className="text-primary underline hover:text-primary/80" href="/privacy" prefetch>
+				<Link className="text-primary underline hover:text-primary/80" href="/politique-de-confidentialite" prefetch>
 					politique de confidentialité
 				</Link>
 				.
