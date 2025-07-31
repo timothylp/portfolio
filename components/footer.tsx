@@ -12,7 +12,7 @@ export function Footer() {
 						Mentions légales
 					</Link>
 				</div>
-				<p className="text-muted-foreground ">© {new Date().getFullYear()} Timothy Le Pallec. Tous droits réservés.</p>
+				<p className="text-muted-foreground">© {new Date().getFullYear()} Timothy Le Pallec. Tous droits réservés.</p>
 			</div>
 		</footer>
 	);

@@ -1,10 +1,8 @@
 "use client";
 
-import { Turnstile } from "@marsidev/react-turnstile";
 import { ForwardIcon, LoaderIcon, MailIcon } from "lucide-react";
 import Form from "next/form";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import React, { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useLocalStorage, useMediaQuery } from "usehooks-ts";
@@ -16,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
+import { CapWidget } from "../cap-widget";
 
 const texts = {
 	button: "Parlons de votre projet",
@@ -76,7 +75,7 @@ const initialState = {
 };
 
 function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { setOpen: (open: boolean) => void }) {
-	const { resolvedTheme } = useTheme();
+	// const { resolvedTheme } = useTheme();
 
 	const [state, action, isPending] = useActionState(sendEmail, initialState);
 	const [form, setForm] = useLocalStorage("form", { email: "", message: "" });
@@ -97,7 +96,7 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
-	const disabledSubmit = (process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !token) || isPending;
+	const disabledSubmit = (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT && !token) || isPending;
 
 	return (
 		<Form action={action} className={cn("grid items-start gap-6", className)}>
@@ -139,17 +138,8 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 			</p>
 
 			<div className="flex flex-col items-center justify-center gap-4">
-				{process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
-					<Turnstile
-						onError={() => setToken(null)}
-						onSuccess={setToken}
-						options={{
-							size: "flexible",
-							language: "fr",
-							theme: resolvedTheme === "dark" ? "dark" : "light",
-						}}
-						siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-					/>
+				{process.env.NEXT_PUBLIC_CAP_API_ENDPOINT && (
+					<CapWidget apiEndpoint={process.env.NEXT_PUBLIC_CAP_API_ENDPOINT} className="w-full" onSolve={(t) => setToken(t)} />
 				)}
 				<Button className="w-full" disabled={disabledSubmit} size="lg" type="submit" variant="outline">
 					{isPending ? (

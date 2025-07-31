@@ -1,9 +1,8 @@
 "use server";
 
-import { headers } from "next/headers";
 import { Resend } from "resend";
 import { EmailTemplate } from "@/components/email-template";
-import { verifyTurnstile } from "./turnstile";
+import { verifyCap } from "./cap";
 
 type FormState = {
 	success: boolean;
@@ -15,7 +14,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendEmail(_prevState: FormState, formData: FormData): Promise<FormState> {
 	const email = String(formData.get("email") || "").trim();
 	const message = String(formData.get("message") || "").trim();
-	const token = String(formData.get("cf-turnstile-response") || "").trim();
+	const token = String(formData.get("cap-token") || "").trim();
 
 	if (process.env.EMAIL_ENABLED === "false") {
 		return { success: false, error: "Les emails sont désactivés." };
@@ -33,8 +32,7 @@ export async function sendEmail(_prevState: FormState, formData: FormData): Prom
 		return { success: false, error: "Veuillez vérifier que vous n'êtes pas un robot." };
 	}
 
-	const remoteip = (await headers()).get("x-real-ip");
-	const isHuman = await verifyTurnstile(token, remoteip);
+	const isHuman = await verifyCap(token);
 	if (!isHuman) {
 		return { success: false, error: "Veuillez vérifier que vous n'êtes pas un robot." };
 	}

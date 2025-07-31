@@ -157,3 +157,24 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+cap-widget {
+	--cap-font: var(--font-sans);
+	--cap-widget-width: 100%;
+	--cap-border-radius: calc(var(--radius) - 2px);
+	--cap-border-color: var(--border);
+	--cap-background: transparent;
+	--cap-color: var(--foreground);
+	--cap-checkbox-background: var(--muted);
+	--cap-checkbox-border-radius: 4px;
+	--cap-checkbox-border: 1px solid var(--input);
+	--cap-credits-font-size: 10px;
+	--cap-spinner-color: var(--foreground);
+	--cap-spinner-background-color: var(--muted);
+	--cap-spinner-thickness: 5px;
+
+	.dark & {
+		--cap-background: color-mix(in oklab, var(--input) 30%, transparent);
+		--cap-checkbox-background: color-mix(in oklab, var(--input) 30%, transparent);
+	}
+}

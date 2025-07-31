@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { RichSnippets } from "@/components/rich-snippets";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -55,12 +56,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const isUmamiEnabled = Boolean(process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_URL);
-
+	const isCapEnabled = Boolean(process.env.NEXT_PUBLIC_CAP_API_ENDPOINT);
 	return (
 		<html className={cn(geistSans.variable, geistMono.variable, "text-pretty antialiased")} lang="fr">
 			<head>
 				<RichSnippets />
-				{isUmamiEnabled ? <script async data-website-id={process.env.UMAMI_WEBSITE_ID} src={process.env.UMAMI_URL} /> : null}
+				{isUmamiEnabled ? <Script data-website-id={process.env.UMAMI_WEBSITE_ID} src={process.env.UMAMI_URL} /> : null}
+				{isCapEnabled ? <Script src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.25" /> : null}
 			</head>
 			<body>
 				<ThemeProvider attribute="class" defaultTheme="system" disableTransitionOnChange enableSystem>
