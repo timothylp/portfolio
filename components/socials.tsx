@@ -8,18 +8,18 @@ import { cn } from "@/lib/utils";
 export function Socials(props: React.ComponentProps<"div">) {
 	return (
 		<div className={cn("flex gap-2", props.className)}>
-			<Link href={SOCIALS.x.href} target="_blank">
-				<Button size="sm" variant="secondary">
+			<Button asChild size="sm" variant="secondary">
+				<Link data-umami-event="open-social" data-umami-event-social="x" href={SOCIALS.x.href} target="_blank">
 					<XIcon className="size-3.5" />
 					{SOCIALS.x.label}
-				</Button>
-			</Link>
-			<Link href={SOCIALS.github.href} target="_blank">
-				<Button size="sm" variant="secondary">
+				</Link>
+			</Button>
+			<Button asChild size="sm" variant="secondary">
+				<Link data-umami-event="open-social" data-umami-event-social="github" href={SOCIALS.github.href} target="_blank">
 					<GithubIcon className="size-3.5" />
 					{SOCIALS.github.label}
-				</Button>
-			</Link>
+				</Link>
+			</Button>
 		</div>
 	);
 }

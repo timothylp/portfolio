@@ -25,7 +25,10 @@ export function Projects() {
 					<li key={project.title}>
 						<Link
 							className="sm:-mx-4 flex items-center gap-4 rounded-lg sm:p-4 sm:hover:bg-accent"
+							data-umami-event="open-project"
+							data-umami-event-project={project.title}
 							href={project.link}
+							prefetch
 							rel="noopener noreferrer"
 							target="_blank"
 						>

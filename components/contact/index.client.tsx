@@ -21,7 +21,7 @@ const texts = {
 	description: "Je suis disponible pour discuter de vos projets.\nN'hésitez pas à me contacter.",
 };
 
-export function ContactClient({ className }: React.ComponentProps<"button">) {
+export function ContactClient({ className, isProduction }: React.ComponentProps<"button"> & { isProduction: boolean }) {
 	const [open, setOpen] = React.useState(false);
 	const isDesktop = useMediaQuery("(min-width: 768px)", { initializeWithValue: false });
 
@@ -29,7 +29,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 		return (
 			<Dialog onOpenChange={setOpen} open={open}>
 				<DialogTrigger asChild>
-					<Button className={className} size="lg" variant="outline">
+					<Button className={className} data-umami-event="open-contact-form" size="lg" variant="outline">
 						<MailIcon className="size-4" />
 						{texts.button}
 					</Button>
@@ -39,7 +39,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 						<DialogTitle>{texts.title}</DialogTitle>
 						<DialogDescription className="whitespace-pre-line">{texts.description}</DialogDescription>
 					</DialogHeader>
-					<ContactForm setOpen={setOpen} />
+					<ContactForm isProduction={isProduction} setOpen={setOpen} />
 				</DialogContent>
 			</Dialog>
 		);
@@ -48,7 +48,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 	return (
 		<Drawer onOpenChange={setOpen} open={open}>
 			<DrawerTrigger asChild>
-				<Button className={className} size="lg" variant="outline">
+				<Button className={className} data-umami-event="open-contact-form" size="lg" variant="outline">
 					{texts.button}
 				</Button>
 			</DrawerTrigger>
@@ -57,7 +57,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 					<DrawerTitle>{texts.title}</DrawerTitle>
 					<DrawerDescription className="whitespace-pre-line">{texts.description}</DrawerDescription>
 				</DrawerHeader>
-				<ContactForm className="px-4" setOpen={setOpen} />
+				<ContactForm className="px-4" isProduction={isProduction} setOpen={setOpen} />
 				<DrawerFooter className="pt-2">
 					<DrawerClose asChild>
 						<Button variant="secondary">Annuler</Button>
@@ -68,7 +68,7 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 	);
 }
 
-function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { setOpen: (open: boolean) => void }) {
+function ContactForm({ className, setOpen, isProduction }: React.ComponentProps<"form"> & { setOpen: (open: boolean) => void; isProduction: boolean }) {
 	const [form, setForm] = useLocalStorage("form", { email: "", message: "" });
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -81,35 +81,42 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setError(null);
+		setIsLoading(true);
 
 		const formData = new FormData(e.target as HTMLFormElement);
-
-		if (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
-			setIsLoading(true);
-			try {
+		try {
+			if (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
 				const solution = await solveCapInvisible();
 				if (solution?.token) {
 					formData.append("cap-token", solution.token);
 				}
-			} catch (err) {
-				console.error("Erreur lors de la résolution Cap:", err);
-			} finally {
-				setIsLoading(false);
 			}
-		}
 
-		const state = await sendEmail(formData);
+			const response = await sendEmail(formData);
 
-		if (state.success) {
-			setForm({ email: "", message: "" });
-			toast.success("Votre message a été envoyé avec succès", {
-				description: "Je vous répondrai dans les plus brefs délais",
-			});
-			setOpen(false);
-		} else {
-			setError(state.error);
+			if (response.success) {
+				toast.success("Votre message a été envoyé avec succès", {
+					description: "Je vous répondrai dans les plus brefs délais",
+				});
+
+				if (isProduction) {
+					window.umami?.track("contact-form-submitted", {
+						email: form.email,
+					});
+				}
+
+				setForm({ email: "", message: "" });
+				setOpen(false);
+			} else {
+				setError(response.error);
+			}
+		} catch (err) {
+			console.error("Erreur lors de l'envoi du message:", err);
+		} finally {
+			setIsLoading(false);
 		}
 	};
+
 	return (
 		<form className={cn("grid items-start gap-6", className)} onSubmit={handleSubmit}>
 			<div className="grid gap-3">
