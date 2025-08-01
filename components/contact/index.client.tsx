@@ -1,9 +1,8 @@
 "use client";
 
 import { ForwardIcon, LoaderIcon, MailIcon } from "lucide-react";
-import Form from "next/form";
 import Link from "next/link";
-import React, { useActionState, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 import { useLocalStorage, useMediaQuery } from "usehooks-ts";
 import { Button } from "@/components/ui/button";
@@ -12,9 +11,9 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { solveCapInvisible } from "@/lib/cap/index.client";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
-import { CapWidget } from "../cap-widget";
 
 const texts = {
 	button: "Parlons de votre projet",
@@ -69,41 +68,54 @@ export function ContactClient({ className }: React.ComponentProps<"button">) {
 	);
 }
 
-const initialState = {
-	success: false,
-	error: "",
-};
-
 function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { setOpen: (open: boolean) => void }) {
-	// const { resolvedTheme } = useTheme();
-
-	const [state, action, isPending] = useActionState(sendEmail, initialState);
 	const [form, setForm] = useLocalStorage("form", { email: "", message: "" });
 
-	const [token, setToken] = useState<string | null>(null);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 
-	useEffect(() => {
+	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		setForm({ ...form, [e.target.name]: e.target.value });
+	};
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		setError(null);
+
+		const formData = new FormData(e.target as HTMLFormElement);
+
+		if (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
+			setIsLoading(true);
+			try {
+				const solution = await solveCapInvisible();
+				if (solution?.token) {
+					formData.append("cap-token", solution.token);
+				}
+			} catch (err) {
+				console.error("Erreur lors de la résolution Cap:", err);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+
+		const state = await sendEmail(formData);
+
 		if (state.success) {
 			setForm({ email: "", message: "" });
 			toast.success("Votre message a été envoyé avec succès", {
 				description: "Je vous répondrai dans les plus brefs délais",
 			});
 			setOpen(false);
+		} else {
+			setError(state.error);
 		}
-	}, [state.success, setForm, setOpen]);
-
-	const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-		setForm({ ...form, [e.target.name]: e.target.value });
 	};
-
-	const disabledSubmit = (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT && !token) || isPending;
-
 	return (
-		<Form action={action} className={cn("grid items-start gap-6", className)}>
+		<form className={cn("grid items-start gap-6", className)} onSubmit={handleSubmit}>
 			<div className="grid gap-3">
 				<Label htmlFor="email">Email</Label>
 				<Input
-					disabled={isPending}
+					disabled={isLoading}
 					id="email"
 					name="email"
 					onChange={handleFormChange}
@@ -117,6 +129,7 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 				<Label htmlFor="message">Message</Label>
 				<Textarea
 					className="min-h-24 resize-y"
+					disabled={isLoading}
 					id="message"
 					minLength={10}
 					name="message"
@@ -127,7 +140,7 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 					value={form.message}
 				/>
 			</div>
-			{state.error && <p className="text-destructive text-sm">{state.error}</p>}
+			{error && <p className="text-destructive text-sm">{error}</p>}
 
 			<p className="text-muted-foreground text-xs">
 				En soumettant ce formulaire, vous acceptez que vos données soient traitées conformément à notre{" "}
@@ -137,21 +150,16 @@ function ContactForm({ className, setOpen }: React.ComponentProps<"form"> & { se
 				.
 			</p>
 
-			<div className="flex flex-col items-center justify-center gap-4">
-				{process.env.NEXT_PUBLIC_CAP_API_ENDPOINT && (
-					<CapWidget apiEndpoint={process.env.NEXT_PUBLIC_CAP_API_ENDPOINT} className="w-full" onSolve={(t) => setToken(t)} />
+			<Button className="w-full" disabled={isLoading} size="lg" type="submit" variant="outline">
+				{isLoading ? (
+					<LoaderIcon className="size-3.5 animate-spin" />
+				) : (
+					<>
+						Envoyer
+						<ForwardIcon className="size-3.5" />
+					</>
 				)}
-				<Button className="w-full" disabled={disabledSubmit} size="lg" type="submit" variant="outline">
-					{isPending ? (
-						<LoaderIcon className="size-3.5 animate-spin" />
-					) : (
-						<>
-							Envoyer
-							<ForwardIcon className="size-3.5" />
-						</>
-					)}
-				</Button>
-			</div>
-		</Form>
+			</Button>
+		</form>
 	);
 }

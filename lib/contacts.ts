@@ -2,7 +2,7 @@
 
 import { Resend } from "resend";
 import { EmailTemplate } from "@/components/email-template";
-import { verifyCap } from "./cap";
+import { verifyCap } from "./cap/index.server";
 
 type FormState = {
 	success: boolean;
@@ -11,7 +11,7 @@ type FormState = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(_prevState: FormState, formData: FormData): Promise<FormState> {
+export async function sendEmail(formData: FormData): Promise<FormState> {
 	const email = String(formData.get("email") || "").trim();
 	const message = String(formData.get("message") || "").trim();
 	const token = String(formData.get("cap-token") || "").trim();
