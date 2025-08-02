@@ -37,6 +37,9 @@ export const metadata: Metadata = {
 		locale: "fr_FR",
 		type: "website",
 	},
+	appleWebApp: {
+		title: "Timothy",
+	},
 	robots: {
 		index: true,
 		follow: true,
