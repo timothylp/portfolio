@@ -2,7 +2,7 @@
 
 import { createElement, useEffect, useRef } from "react";
 
-interface CapWidgetProps {
+type CapWidgetProps = {
 	apiEndpoint: string;
 	workerCount?: number;
 	hiddenFieldName?: string;
@@ -22,7 +22,7 @@ interface CapWidgetProps {
 	onProgress?: (progress: unknown) => void;
 	className?: string;
 	style?: React.CSSProperties;
-}
+};
 
 export function CapWidget({
 	apiEndpoint,

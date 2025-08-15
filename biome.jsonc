@@ -1,16 +1,21 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
 	"extends": ["ultracite"],
 	"formatter": {
 		"indentWidth": 4,
 		"lineWidth": 160
 	},
 	"linter": {
+		"domains": {
+			"solid": "none"
+		},
 		"rules": {
 			"style": {
-				"useBlockStatements": "off"
+				"useBlockStatements": "off",
+				"noMagicNumbers": "off"
 			},
 			"complexity": {
+				"noExcessiveLinesPerFunction": "off",
 				"noExcessiveCognitiveComplexity": {
 					"level": "warn",
 					"options": {
@@ -26,9 +31,6 @@
 						"allow": ["error", "warn", "info"]
 					}
 				}
-			},
-			"nursery": {
-				"useJsonImportAttribute": "off"
 			}
 		},
 		"includes": ["**", "!**/globals.css"]

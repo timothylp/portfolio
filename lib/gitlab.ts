@@ -1,79 +1,46 @@
 import { Gitlab } from "@gitbeaker/rest";
+import { cache } from "react";
 
-export function createGitlabClient() {
-	const host = process.env.GITLAB_HOST || "https://gitlab.com";
-	const token = process.env.GITLAB_TOKEN;
+export const gitlab = new Gitlab({
+	host: process.env.GITLAB_HOST || "https://gitlab.com",
+	token: process.env.GITLAB_TOKEN,
+});
 
-	return new Gitlab({ host, token });
-}
+export const queryUserContributionsByMonth = cache(async ({ userId, startDate, endDate }: { userId: number; startDate: string; endDate?: string }) => {
+	const events = await gitlab.Events.all({
+		action: "pushed",
+		userId,
+		after: startDate,
+		before: endDate,
+	});
 
-export type MonthlyCounts = number[]; // length 12
+	const monthlyCounts = events.reduce((acc, event) => {
+		const date = new Date(event.created_at);
+		const month = date.getMonth();
+		acc[month]++;
+		return acc;
+	}, new Array(12).fill(0));
 
-export function emptyMonthlyCounts(): MonthlyCounts {
-	return new Array(12).fill(0);
-}
+	return monthlyCounts;
+});
 
-export function addEventToMonthlyCounts(counts: MonthlyCounts, dateISO: string) {
-	const date = new Date(dateISO);
-	const monthIndex = date.getUTCMonth();
-	counts[monthIndex]++;
-}
+export const queryAverageContributionsByMonth = cache(async ({ userIds, startDate, endDate }: { userIds: number[]; startDate: string; endDate?: string }) => {
+	const userContributionsPromises = userIds.map((userId) => queryUserContributionsByMonth({ userId, startDate, endDate }));
 
-export async function findUserIdByUsername(username: string): Promise<number | null> {
-	const client = createGitlabClient();
-	// GitLab REST allows filtering by exact username
-	type UsersApi = { all: (opts: { username?: string }) => Promise<Array<{ id: number; username: string }>> };
-	const usersApi = (client as unknown as { Users: UsersApi }).Users;
-	const users = await usersApi.all({ username });
-	const match = users.find((u) => u.username.toLowerCase() === username.toLowerCase());
-	return match ? match.id : null;
-}
+	const userContributions = await Promise.all(userContributionsPromises);
 
-const TRAILING_SLASH_REGEX = /\/$/;
+	const monthlyAverages = new Array(12).fill(0);
 
-export async function fetchUserEventsMonthlyCounts(userId: number, year: number): Promise<MonthlyCounts> {
-	const counts = emptyMonthlyCounts();
-	const host = process.env.GITLAB_HOST || "https://gitlab.com";
-	const token = process.env.GITLAB_TOKEN;
-	const after = `${year}-01-01`;
-	const before = `${year}-12-31`;
-	const perPage = 100;
-
-	async function fetchAllPages(page: number): Promise<void> {
-		const base = host.replace(TRAILING_SLASH_REGEX, "");
-		const url = new URL(`${base}/api/v4/users/${userId}/events`);
-		url.searchParams.set("after", after);
-		url.searchParams.set("before", before);
-		url.searchParams.set("per_page", String(perPage));
-		url.searchParams.set("page", String(page));
-
-		const res = await fetch(url, {
-			headers: token ? { "PRIVATE-TOKEN": token } : undefined,
-		});
-		if (!res.ok) {
-			throw new Error(`GitLab events request failed (${res.status})`);
-		}
-		const events = (await res.json()) as Array<{ created_at?: string }>;
-		for (const ev of events) {
-			if (ev?.created_at) addEventToMonthlyCounts(counts, ev.created_at);
-		}
-		if (events.length === perPage) {
-			await fetchAllPages(page + 1);
+	for (const contributions of userContributions) {
+		for (let month = 0; month < contributions.length; month++) {
+			monthlyAverages[month] += contributions[month];
 		}
 	}
 
-	await fetchAllPages(1);
-
-	return counts;
-}
-
-export function averageMonthlyCounts(arrays: MonthlyCounts[]): MonthlyCounts {
-	if (!arrays.length) return emptyMonthlyCounts();
-	const result = emptyMonthlyCounts();
-	for (let m = 0; m < 12; m++) {
-		let sum = 0;
-		for (const arr of arrays) sum += arr[m] || 0;
-		result[m] = Math.round(sum / arrays.length);
+	const numberOfUsers = userIds.length;
+	for (let month = 0; month < monthlyAverages.length; month++) {
+		monthlyAverages[month] /= numberOfUsers;
 	}
-	return result;
-}
+
+	return monthlyAverages;
+});
