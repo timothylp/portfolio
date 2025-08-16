@@ -14,10 +14,15 @@ const nextConfig: NextConfig = {
 
 	pageExtensions: ["md", "mdx", "ts", "tsx"],
 
+	productionBrowserSourceMaps: process.env.NODE_ENV === "development",
+
 	experimental:
 		process.env.NODE_ENV === "production"
 			? {
 					reactCompiler: true,
+					preloadEntriesOnStart: false,
+					webpackMemoryOptimizations: true,
+					serverSourceMaps: false,
 				}
 			: undefined,
 };
