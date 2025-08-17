@@ -11,10 +11,6 @@ const nextConfig: NextConfig = {
 				source: "/script.js",
 				destination: "https://stats.timothylepallec.com/script.js",
 			},
-			{
-				source: "/api/send",
-				destination: "https://stats.timothylepallec.com/api/send",
-			},
 		];
 	},
 

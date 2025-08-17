@@ -58,13 +58,13 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const isUmamiEnabled = Boolean(process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_URL);
+	const isUmamiEnabled = Boolean(process.env.NODE_ENV === "production" && process.env.UMAMI_WEBSITE_ID && process.env.UMAMI_URL);
 	const isCapEnabled = Boolean(process.env.NEXT_PUBLIC_CAP_API_ENDPOINT);
 	return (
 		<html className={cn(geistSans.variable, geistMono.variable, "text-pretty antialiased")} lang="fr">
 			<head>
 				<RichSnippets />
-				{isUmamiEnabled ? <Script data-website-id={process.env.UMAMI_WEBSITE_ID} src="/script.js" /> : null}
+				{isUmamiEnabled ? <Script data-website-id={process.env.UMAMI_WEBSITE_ID} data-host-url={process.env.UMAMI_URL} src="/script.js" /> : null}
 				{isCapEnabled ? <Script src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.25" /> : null}
 			</head>
 			<body>
