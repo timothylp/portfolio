@@ -64,7 +64,7 @@ export default function RootLayout({
 		<html className={cn(geistSans.variable, geistMono.variable, "text-pretty antialiased")} lang="fr">
 			<head>
 				<RichSnippets />
-				{isUmamiEnabled ? <Script data-website-id={process.env.UMAMI_WEBSITE_ID} src={process.env.UMAMI_URL} /> : null}
+				{isUmamiEnabled ? <Script data-website-id={process.env.UMAMI_WEBSITE_ID} src="/script.js" /> : null}
 				{isCapEnabled ? <Script src="https://cdn.jsdelivr.net/npm/@cap.js/widget@0.1.25" /> : null}
 			</head>
 			<body>
