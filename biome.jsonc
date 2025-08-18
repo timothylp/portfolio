@@ -31,6 +31,9 @@
 						"allow": ["error", "warn", "info"]
 					}
 				}
+			},
+			"nursery": {
+				"noUnnecessaryConditions": "off"
 			}
 		},
 		"includes": ["**", "!**/globals.css"]

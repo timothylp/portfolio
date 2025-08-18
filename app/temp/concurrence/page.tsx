@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { AsanaTimeChart } from "./asana-time-chart";
-import { ContributionsAverageChart } from "./contributions-average-chart";
 import { ContributionsYearsChart } from "./contributions-years-chart";
 
 export default function ConcurrencePage() {
@@ -9,10 +8,6 @@ export default function ConcurrencePage() {
 			<h2 className="mb-2 font-semibold text-lg">Comparaisons des contributions par mois entre 2024 et 2025</h2>
 			<div className="w-full max-w-6xl rounded-lg border p-4">
 				<ContributionsYearsChart />
-			</div>
-			<h2 className="mb-2 font-semibold text-lg">Comparaisons avec la moyenne des contributions par mois</h2>
-			<div className="w-full max-w-6xl rounded-lg border p-4">
-				<ContributionsAverageChart />
 			</div>
 			<h2 className="mb-2 font-semibold text-lg">Comparaisons des temps Asana par mois entre 2023-2024 et 2024-2025</h2>
 			<div className="w-full max-w-6xl rounded-lg border p-4">

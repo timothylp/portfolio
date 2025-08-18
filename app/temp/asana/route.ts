@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { fetchAsana } from "@/lib/asana";
+import { fetchAsana } from "@/app/temp/asana";
 
 export async function GET() {
 	try {

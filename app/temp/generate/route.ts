@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { queryAverageContributionsByMonth } from "@/lib/gitlab";
+import { queryAverageContributionsByMonth } from "@/app/temp/gitlab";
 
 export async function GET() {
 	try {

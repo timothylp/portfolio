@@ -38,16 +38,15 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function AsanaTimeChartClient({ asanaTimeEntries }: { asanaTimeEntries: TimeTrackingEntry[] }) {
-	// Calculer les données pour les deux périodes
-	const period1Data = calculateMonthlyTotals(asanaTimeEntries, "2023-09-01", "2024-08-31");
-	const period2Data = calculateMonthlyTotals(asanaTimeEntries, "2024-09-01", "2025-08-15");
-	// Créer les données du graphique
+	const previousData = calculateMonthlyTotals(asanaTimeEntries, "2023-09-01", "2024-08-31");
+	const currentData = calculateMonthlyTotals(asanaTimeEntries, "2024-09-01", "2025-08-15");
+
 	const months = ["septembre", "octobre", "novembre", "décembre", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août"];
 
 	const chartData = months.map((month) => ({
 		month,
-		previous: Math.round((period1Data[month] || 0) / 60), // Convertir en heures
-		current: Math.round((period2Data[month] || 0) / 60), // Convertir en heures
+		previous: Math.round((previousData[month] || 0) / 60),
+		current: Math.round((currentData[month] || 0) / 60),
 	}));
 
 	return (

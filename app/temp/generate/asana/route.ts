@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { NextResponse } from "next/server";
-import { fetchAsana } from "@/lib/asana";
+import { fetchAsana } from "@/app/temp/asana";
 
 type TimeTrackingEntry = {
 	duration_minutes: number;
