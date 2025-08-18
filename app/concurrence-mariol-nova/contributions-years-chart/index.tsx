@@ -1,4 +1,4 @@
-import { queryUserContributionsByMonth } from "../../gitlab";
+import { queryUserContributionsByMonth } from "../gitlab";
 import { ContributionsYearsChartClient } from "./index.client";
 
 export async function ContributionsYearsChart() {

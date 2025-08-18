@@ -2,15 +2,15 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import type { ContributionsByMonth } from "../../gitlab";
+import type { ContributionsByMonth } from "../gitlab";
 
 const chartConfig = {
 	previous: {
-		label: "Année précédente",
+		label: "2023-2024",
 		color: "var(--chart-1)",
 	},
 	current: {
-		label: "Année en cours",
+		label: "2024-2025",
 		color: "var(--chart-2)",
 	},
 } satisfies ChartConfig;

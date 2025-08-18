@@ -9,7 +9,7 @@ type TimeTrackingEntry = {
 };
 
 // Fonction pour calculer les totaux par mois pour une période donnée
-function calculateMonthlyTotals(asanaTimeEntries: TimeTrackingEntry[], startDate: string, endDate: string) {
+function calculateMonthlyTotals(asanaTimeEntries: TimeTrackingEntry[], startDate: string, endDate: string, excludedMonths: string[] = []) {
 	const monthlyData: { [key: string]: number } = {};
 
 	for (const entry of asanaTimeEntries) {
@@ -19,7 +19,11 @@ function calculateMonthlyTotals(asanaTimeEntries: TimeTrackingEntry[], startDate
 
 		if (entryDate >= start && entryDate <= end) {
 			const monthKey = entryDate.toLocaleDateString("fr-FR", { month: "long" });
-			monthlyData[monthKey] = (monthlyData[monthKey] || 0) + entry.duration;
+
+			// Exclure les mois spécifiés
+			if (!excludedMonths.includes(monthKey)) {
+				monthlyData[monthKey] = (monthlyData[monthKey] || 0) + entry.duration;
+			}
 		}
 	}
 
@@ -28,18 +32,18 @@ function calculateMonthlyTotals(asanaTimeEntries: TimeTrackingEntry[], startDate
 
 const chartConfig = {
 	previous: {
-		label: "2023-2024 (heures)",
+		label: "2023-2024",
 		color: "var(--chart-1)",
 	},
 	current: {
-		label: "2024-2025 (heures)",
+		label: "2024-2025",
 		color: "var(--chart-2)",
 	},
 } satisfies ChartConfig;
 
-export function AsanaTimeChartClient({ asanaTimeEntries }: { asanaTimeEntries: TimeTrackingEntry[] }) {
-	const previousData = calculateMonthlyTotals(asanaTimeEntries, "2023-09-01", "2024-08-31");
-	const currentData = calculateMonthlyTotals(asanaTimeEntries, "2024-09-01", "2025-08-15");
+export function AsanaTimeChartClient({ asanaTimeEntries, excludedMonths = [] }: { asanaTimeEntries: TimeTrackingEntry[]; excludedMonths?: string[] }) {
+	const previousData = calculateMonthlyTotals(asanaTimeEntries, "2023-09-01", "2024-08-31", excludedMonths);
+	const currentData = calculateMonthlyTotals(asanaTimeEntries, "2024-09-01", "2025-08-15", excludedMonths);
 
 	const months = ["septembre", "octobre", "novembre", "décembre", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août"];
 

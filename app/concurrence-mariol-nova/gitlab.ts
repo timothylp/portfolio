@@ -21,7 +21,7 @@ const PREVIOUS_END_DATE = "2024-08-31";
 const CURRENT_START_DATE = "2024-09-01";
 const CURRENT_END_DATE = "2025-08-31";
 
-const MONTHS_FR = ["Septembre", "Octobre", "Novembre", "Décembre", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août"];
+const MONTHS_FR = ["septembre", "octobre", "novembre", "décembre", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août"];
 
 const FILENAME = "contributions-by-month.json";
 
