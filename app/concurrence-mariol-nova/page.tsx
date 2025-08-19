@@ -93,7 +93,7 @@ export default function ConcurrencePage() {
 							<p className="text-muted-foreground text-sm">
 								Le code de ce document est disponible sur{" "}
 								<Link
-									className="underline hover:text-primary"
+									className="underline underline-offset-2 hover:text-primary"
 									href="https://github.com/timothylp/portfolio/tree/master/app/concurrence-mariol-nova"
 									rel="noopener noreferrer"
 									target="_blank"

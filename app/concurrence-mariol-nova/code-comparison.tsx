@@ -13,6 +13,19 @@ export function CodeComparison() {
 			{/* Rapport de duplication */}
 			<div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
 				<h3 className="mb-4 font-semibold text-gray-800 text-lg">Rapport d'analyse de similarité de code</h3>
+
+				<p className="mb-4 text-muted-foreground text-sm">
+					Le rapport de duplication à été généré grâce à l'outil{" "}
+					<Link
+						className="underline underline-offset-2 hover:text-primary"
+						href="https://github.com/kucherenko/jscpd"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						JSCPD
+					</Link>
+					.
+				</p>
 				<div className="space-y-4">
 					<div className="flex items-center justify-between rounded-lg border bg-white p-4">
 						<div>
