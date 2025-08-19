@@ -58,7 +58,7 @@ export function AsanaTimeChartClient({ asanaTimeEntries, excludedMonths = [] }: 
 			<BarChart accessibilityLayer data={chartData}>
 				<CartesianGrid vertical={false} />
 				<XAxis axisLine={false} dataKey="month" tickFormatter={(value) => value.slice(0, 3)} tickLine={false} tickMargin={10} />
-				<ChartTooltip content={<ChartTooltipContent indicator="dashed" />} cursor={false} />
+				<ChartTooltip content={<ChartTooltipContent indicator="line" />} cursor={false} />
 				<Bar dataKey="previous" fill="var(--color-previous)" radius={4} />
 				<Bar dataKey="current" fill="var(--color-current)" radius={4} />
 			</BarChart>

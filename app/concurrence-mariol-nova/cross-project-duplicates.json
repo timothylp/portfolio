@@ -1,0 +1,676 @@
+{
+	"summary": {
+		"totalDuplicates": 253,
+		"crossProjectDuplicates": 37,
+		"internalDuplicates": 216,
+		"detectionDate": "2025-08-13T08:43:37.676Z"
+	},
+	"crossProjectDuplicates": [
+		{
+			"id": 1,
+			"format": "tsx",
+			"lines": 16,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/app/(payload)/admin/[[...segments]]/page.tsx",
+				"start": 7,
+				"end": 22
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/templates/website/app/(payload)/admin/[[...segments]]/page.tsx",
+				"start": 6,
+				"end": 21
+			},
+			"fragment": ";\n\ntype Args = {\n\tparams: Promise<{\n\t\tsegments: string[];\n\t}>;\n\tsearchParams: Promise<{\n\t\t[key: string]: string | string[];\n\t}>;\n};\n\nexport const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> => generatePageMetadata({ config, params, searchParams });\n\nconst Page = ({ params, searchParams }: Args) => RootPage({ config, importMap, params, searchParams });\n\nexport default Page;"
+		},
+		{
+			"id": 2,
+			"format": "tsx",
+			"lines": 21,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/app/(payload)/admin/[[...segments]]/not-found.tsx",
+				"start": 1,
+				"end": 21
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/templates/website/app/(payload)/admin/[[...segments]]/not-found.tsx",
+				"start": 1,
+				"end": 21
+			},
+			"fragment": ";\n/* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */\nimport { NotFoundPage, generatePageMetadata } from \"@payloadcms/next/views\";\n/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */\nimport type { Metadata } from \"next\";\nimport { importMap } from \"../importMap\";\n\ntype Args = {\n\tparams: Promise<{\n\t\tsegments: string[];\n\t}>;\n\tsearchParams: Promise<{\n\t\t[key: string]: string | string[];\n\t}>;\n};\n\nexport const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> => generatePageMetadata({ config, params, searchParams });\n\nconst NotFound = ({ params, searchParams }: Args) => NotFoundPage({ config, importMap, params, searchParams });\n\nexport default NotFound;"
+		},
+		{
+			"id": 3,
+			"format": "typescript",
+			"lines": 27,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/plugin-portfolio/src/collections/realisations/index.ts",
+				"start": 138,
+				"end": 164
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/plugin-items/src/collections/items/index.ts",
+				"start": 102,
+				"end": 149
+			},
+			"fragment": ",\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tname: \"meta\",\n\t\t\t\t\tlabel: \"SEO\",\n\t\t\t\t\tfields: [\n\t\t\t\t\t\tOverviewField({\n\t\t\t\t\t\t\ttitlePath: \"meta.title\",\n\t\t\t\t\t\t\tdescriptionPath: \"meta.description\",\n\t\t\t\t\t\t\timagePath: \"meta.image\",\n\t\t\t\t\t\t}),\n\t\t\t\t\t\tMetaTitleField({}),\n\t\t\t\t\t\tMetaImageField({\n\t\t\t\t\t\t\trelationTo: \"media\",\n\t\t\t\t\t\t}),\n\t\t\t\t\t\tMetaDescriptionField({}),\n\t\t\t\t\t\tPreviewField({\n\t\t\t\t\t\t\ttitlePath: \"meta.title\",\n\t\t\t\t\t\t\tdescriptionPath: \"meta.description\",\n\t\t\t\t\t\t}),\n\t\t\t\t\t],\n\t\t\t\t},\n\t\t\t],\n\t\t},\n\t\tvisibilityField"
+		},
+		{
+			"id": 4,
+			"format": "typescript",
+			"lines": 20,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/plugin-ecommerce/src/collections/products/index.ts",
+				"start": 343,
+				"end": 362
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/plugin-items/src/collections/items/index.ts",
+				"start": 102,
+				"end": 142
+			},
+			"fragment": ",\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tname: \"meta\",\n\t\t\t\t\tlabel: \"SEO\",\n\t\t\t\t\tfields: [\n\t\t\t\t\t\tOverviewField({\n\t\t\t\t\t\t\ttitlePath: \"meta.title\",\n\t\t\t\t\t\t\tdescriptionPath: \"meta.description\",\n\t\t\t\t\t\t\timagePath: \"meta.image\",\n\t\t\t\t\t\t}),\n\t\t\t\t\t\tMetaTitleField({}),\n\t\t\t\t\t\tMetaImageField({\n\t\t\t\t\t\t\trelationTo: \"media\",\n\t\t\t\t\t\t}),\n\t\t\t\t\t\tMetaDescriptionField({}),\n\t\t\t\t\t\tPreviewField({\n\t\t\t\t\t\t\thasGenerateFn"
+		},
+		{
+			"id": 5,
+			"format": "tsx",
+			"lines": 11,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/plugin-admin/src/components/sidebar/index.client.tsx",
+				"start": 159,
+				"end": 169
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/admin/components/nav/nav-sub-group.tsx",
+				"start": 46,
+				"end": 56
+			},
+			"fragment": "const newGroupPrefs: NavPreferences[\"groups\"] = {};\n\n\t\tif (newGroupPrefs?.[label]) {\n\t\t\tnewGroupPrefs[label].open = Boolean(collapsed);\n\t\t} else {\n\t\t\tnewGroupPrefs[label] = { open: Boolean(collapsed) };\n\t\t}\n\n\t\tsetPreference(preferencesKey, { groups: newGroupPrefs }, true);\n\t\tsetCollapsed(!collapsed);\n\t},"
+		},
+		{
+			"id": 6,
+			"format": "typescript",
+			"lines": 18,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/payload/src/fields/published-at/index.ts",
+				"start": 4,
+				"end": 21
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/fields/published-at.ts",
+				"start": 6,
+				"end": 23
+			},
+			"fragment": "} = {}) => {\n\tconst publishedAtResult: Field = {\n\t\tname: \"publishedAt\",\n\t\ttype: \"date\",\n\t\tlabel: \"Publié le\",\n\t\thooks: {\n\t\t\tbeforeChange: [\n\t\t\t\t({ value, req }) => {\n\t\t\t\t\tif (!value && req?.data?._status === \"published\") {\n\t\t\t\t\t\treturn new Date();\n\t\t\t\t\t}\n\n\t\t\t\t\treturn value;\n\t\t\t\t},\n\t\t\t],\n\t\t},\n\t\tadmin: {\n\t\t\tposition"
+		},
+		{
+			"id": 7,
+			"format": "typescript",
+			"lines": 26,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/payload/src/fields/media/index.ts",
+				"start": 7,
+				"end": 32
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/fields/media.ts",
+				"start": 7,
+				"end": 32
+			},
+			"fragment": "= {\n\t\tname: \"media\",\n\t\tlabel: {\n\t\t\tfr: \"Média\",\n\t\t\ten: \"Media\",\n\t\t},\n\t\ttype: \"upload\",\n\t\trelationTo: \"media\",\n\t\tfilterOptions: {\n\t\t\tor: [\n\t\t\t\t{\n\t\t\t\t\tmimeType: {\n\t\t\t\t\t\tcontains: \"image/\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tmimeType: {\n\t\t\t\t\t\tcontains: \"video/\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t],\n\t\t},\n\t};\n\n\treturn deepMerge(field, overrides || {});\n};"
+		},
+		{
+			"id": 8,
+			"format": "typescript",
+			"lines": 18,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/payload/src/fields/link/index.ts",
+				"start": 96,
+				"end": 113
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/fields/link.ts",
+				"start": 81,
+				"end": 98
+			},
+			"fragment": "if (disableLabel) {\n\t\tlinkResult.fields = [...linkResult.fields, ...linkTypes];\n\t} else {\n\t\tlinkTypes.map((linkType) => ({\n\t\t\t...linkType,\n\t\t\tadmin: {\n\t\t\t\t...linkType.admin,\n\t\t\t\twidth: \"50%\",\n\t\t\t},\n\t\t}));\n\n\t\tlinkResult.fields.push({\n\t\t\ttype: \"row\",\n\t\t\tfields: [\n\t\t\t\t...linkTypes,\n\t\t\t\t{\n\t\t\t\t\tname: \"label\",\n\t\t\t\t\ttype"
+		},
+		{
+			"id": 9,
+			"format": "css",
+			"lines": 15,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/styles/storefront.css",
+				"start": 24,
+				"end": 38
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/(frontend)/globals.css",
+				"start": 16,
+				"end": 25
+			},
+			"fragment": ");\n\n\t--color-primary: var(--primary);\n\t--color-primary-foreground: var(--primary-foreground);\n\n\t--color-secondary: var(--secondary);\n\t--color-secondary-foreground: var(--secondary-foreground);\n\n\t--color-muted: var(--muted);\n\t--color-muted-foreground: var(--muted-foreground);\n\n\t--color-accent: var(--accent);\n\t--color-accent-foreground: var(--accent-foreground);\n\n\t--color-border"
+		},
+		{
+			"id": 10,
+			"format": "css",
+			"lines": 9,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/styles/dashboard.css",
+				"start": 92,
+				"end": 100
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/(frontend)/globals.css",
+				"start": 97,
+				"end": 103
+			},
+			"fragment": ");\n\n\t--chart-1: oklch(0.488 0.243 264.376);\n\t--chart-2: oklch(0.696 0.17 162.48);\n\t--chart-3: oklch(0.769 0.188 70.08);\n\t--chart-4: oklch(0.627 0.265 303.9);\n\t--chart-5: oklch(0.645 0.246 16.439);\n\n\t--sidebar: oklch(0.205"
+		},
+		{
+			"id": 11,
+			"format": "css",
+			"lines": 23,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/styles/dashboard.css",
+				"start": 111,
+				"end": 133
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/(frontend)/globals.css",
+				"start": 11,
+				"end": 26
+			},
+			"fragment": "--color-background: var(--background);\n\t--color-foreground: var(--foreground);\n\n\t--color-card: var(--card);\n\t--color-card-foreground: var(--card-foreground);\n\n\t--color-popover: var(--popover);\n\t--color-popover-foreground: var(--popover-foreground);\n\n\t--color-primary: var(--primary);\n\t--color-primary-foreground: var(--primary-foreground);\n\n\t--color-secondary: var(--secondary);\n\t--color-secondary-foreground: var(--secondary-foreground);\n\n\t--color-muted: var(--muted);\n\t--color-muted-foreground: var(--muted-foreground);\n\n\t--color-accent: var(--accent);\n\t--color-accent-foreground: var(--accent-foreground);\n\n\t--color-destructive: var(--destructive);\n\t--color-destructive-foreground"
+		},
+		{
+			"id": 12,
+			"format": "css",
+			"lines": 13,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/styles/dashboard.css",
+				"start": 139,
+				"end": 151
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/(frontend)/globals.css",
+				"start": 25,
+				"end": 34
+			},
+			"fragment": ");\n\n\t--color-border: var(--border);\n\t--color-input: var(--input);\n\t--color-ring: var(--ring);\n\n\t--color-chart-1: var(--chart-1);\n\t--color-chart-2: var(--chart-2);\n\t--color-chart-3: var(--chart-3);\n\t--color-chart-4: var(--chart-4);\n\t--color-chart-5: var(--chart-5);\n\n\t--radius-sm"
+		},
+		{
+			"id": 13,
+			"format": "css",
+			"lines": 12,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/styles/dashboard.css",
+				"start": 154,
+				"end": 165
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/(frontend)/globals.css",
+				"start": 33,
+				"end": 42
+			},
+			"fragment": ");\n\n\t--color-sidebar: var(--sidebar);\n\t--color-sidebar-foreground: var(--sidebar-foreground);\n\t--color-sidebar-primary: var(--sidebar-primary);\n\t--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);\n\t--color-sidebar-accent: var(--sidebar-accent);\n\t--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);\n\t--color-sidebar-border: var(--sidebar-border);\n\t--color-sidebar-ring: var(--sidebar-ring);\n\n\t--text-xs"
+		},
+		{
+			"id": 14,
+			"format": "typescript",
+			"lines": 14,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/hooks/use-media-query.ts",
+				"start": 6,
+				"end": 19
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/ui/src/hooks/use-media-query.ts",
+				"start": 6,
+				"end": 19
+			},
+			"fragment": "useEffect(() => {\n\t\tfunction onChange(event: MediaQueryListEvent) {\n\t\t\tsetValue(event.matches);\n\t\t}\n\n\t\tconst result = matchMedia(query);\n\t\tresult.addEventListener(\"change\", onChange);\n\t\tsetValue(result.matches);\n\n\t\treturn () => result.removeEventListener(\"change\", onChange);\n\t}, [query]);\n\n\treturn value;\n}"
+		},
+		{
+			"id": 15,
+			"format": "tsx",
+			"lines": 40,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/tooltip.tsx",
+				"start": 3,
+				"end": 42
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/tooltip.tsx",
+				"start": 3,
+				"end": 42
+			},
+			"fragment": ";\nimport { Tooltip as TooltipPrimitive } from \"radix-ui\";\nimport type * as React from \"react\";\n\nfunction TooltipProvider({ delayDuration = 0, ...props }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {\n\treturn <TooltipPrimitive.Provider data-slot=\"tooltip-provider\" delayDuration={delayDuration} {...props} />;\n}\n\nfunction Tooltip({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Root>) {\n\treturn (\n\t\t<TooltipProvider>\n\t\t\t<TooltipPrimitive.Root data-slot=\"tooltip\" {...props} />\n\t\t</TooltipProvider>\n\t);\n}\n\nfunction TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {\n\treturn <TooltipPrimitive.Trigger data-slot=\"tooltip-trigger\" {...props} />;\n}\n\nfunction TooltipContent({ className, sideOffset = 0, children, ...props }: React.ComponentProps<typeof TooltipPrimitive.Content>) {\n\treturn (\n\t\t<TooltipPrimitive.Portal>\n\t\t\t<TooltipPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"fade-in-0 zoom-in-95 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) animate-in text-balance rounded-md bg-primary px-3 py-1.5 text-primary-foreground text-xs data-[state=closed]:animate-out\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"tooltip-content\"\n\t\t\t\tsideOffset={sideOffset}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t\t<TooltipPrimitive.Arrow className=\"z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px] bg-primary fill-primary\" />\n\t\t\t</TooltipPrimitive.Content>\n\t\t</TooltipPrimitive.Portal>\n\t);\n}\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };"
+		},
+		{
+			"id": 16,
+			"format": "tsx",
+			"lines": 31,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/tabs.tsx",
+				"start": 4,
+				"end": 34
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/tabs.tsx",
+				"start": 5,
+				"end": 35
+			},
+			"fragment": ";\n\nfunction Tabs({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) {\n\treturn <TabsPrimitive.Root className={cn(\"flex flex-col gap-2\", className)} data-slot=\"tabs\" {...props} />;\n}\n\nfunction TabsList({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.List>) {\n\treturn (\n\t\t<TabsPrimitive.List\n\t\t\tclassName={cn(\"inline-flex h-9 w-fit items-center justify-center rounded-lg bg-muted p-[3px]\", className)}\n\t\t\tdata-slot=\"tabs-list\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction TabsTrigger({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Trigger>) {\n\treturn (\n\t\t<TabsPrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t\"inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-md border border-transparent px-2 py-1 font-medium text-foreground text-sm transition-[color,box-shadow] focus-visible:border-ring focus-visible:outline-1 focus-visible:outline-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:shadow-sm dark:text-muted-foreground dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 dark:data-[state=active]:text-foreground [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"tabs-trigger\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) {\n\treturn ("
+		},
+		{
+			"id": 17,
+			"format": "tsx",
+			"lines": 24,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/sonner.tsx",
+				"start": 3,
+				"end": 26
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/sonner.tsx",
+				"start": 4,
+				"end": 26
+			},
+			"fragment": ";\nimport { Toaster as Sonner, type ToasterProps } from \"sonner\";\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n\tconst { theme = \"system\" } = useTheme();\n\n\treturn (\n\t\t<Sonner\n\t\t\tclassName=\"toaster group\"\n\t\t\tstyle={\n\t\t\t\t{\n\t\t\t\t\t\"--normal-bg\": \"var(--popover)\",\n\t\t\t\t\t\"--normal-text\": \"var(--popover-foreground)\",\n\t\t\t\t\t\"--normal-border\": \"var(--border)\",\n\t\t\t\t\t\"--border-radius\": \"var(--radius)\",\n\t\t\t\t} as React.CSSProperties\n\t\t\t}\n\t\t\ttheme={theme as ToasterProps[\"theme\"]}\n\t\t\t{...props}\n\t\t/>\n\t);\n};\n\nexport { Toaster };"
+		},
+		{
+			"id": 18,
+			"format": "javascript",
+			"lines": 89,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/select.tsx",
+				"start": 29,
+				"end": 117
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/select.tsx",
+				"start": 30,
+				"end": 118
+			},
+			"fragment": "={cn(\n\t\t\t\t\"flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[size=default]:h-9 data-[size=sm]:h-8 data-[placeholder]:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 dark:hover:bg-input/50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-size={size}\n\t\t\tdata-slot=\"select-trigger\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<SelectPrimitive.Icon asChild>\n\t\t\t\t<ChevronDownIcon className=\"size-4 opacity-50\" />\n\t\t\t</SelectPrimitive.Icon>\n\t\t</SelectPrimitive.Trigger>\n\t);\n}\n\nfunction SelectContent({ className, children, position = \"popper\", ...props }: React.ComponentProps<typeof SelectPrimitive.Content>) {\n\treturn (\n\t\t<SelectPrimitive.Portal>\n\t\t\t<SelectPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tposition === \"popper\" &&\n\t\t\t\t\t\t\"data-[side=left]:-translate-x-1 data-[side=top]:-translate-y-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"select-content\"\n\t\t\t\tposition={position}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<SelectScrollUpButton />\n\t\t\t\t<SelectPrimitive.Viewport\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"p-1\",\n\t\t\t\t\t\tposition === \"popper\" && \"h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1\"\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</SelectPrimitive.Viewport>\n\t\t\t\t<SelectScrollDownButton />\n\t\t\t</SelectPrimitive.Content>\n\t\t</SelectPrimitive.Portal>\n\t);\n}\n\nfunction SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {\n\treturn <SelectPrimitive.Label className={cn(\"px-2 py-1.5 text-muted-foreground text-xs\", className)} data-slot=\"select-label\" {...props} />;\n}\n\nfunction SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {\n\treturn (\n\t\t<SelectPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex w-full cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"select-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"absolute right-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<SelectPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</SelectPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>\n\t\t</SelectPrimitive.Item>\n\t);\n}\n\nfunction SelectSeparator({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) {\n\treturn <SelectPrimitive.Separator className={cn(\"-mx-1 pointer-events-none my-1 h-px bg-border\", className)} data-slot=\"select-separator\" {...props} />;\n}\n\nfunction SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollUpButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-up-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronUpIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollUpButton>\n\t);\n}\n\nfunction SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollDownButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}"
+		},
+		{
+			"id": 19,
+			"format": "tsx",
+			"lines": 133,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/select.tsx",
+				"start": 5,
+				"end": 137
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/select.tsx",
+				"start": 6,
+				"end": 138
+			},
+			"fragment": ";\n\nfunction Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {\n\treturn <SelectPrimitive.Root data-slot=\"select\" {...props} />;\n}\n\nfunction SelectGroup({ ...props }: React.ComponentProps<typeof SelectPrimitive.Group>) {\n\treturn <SelectPrimitive.Group data-slot=\"select-group\" {...props} />;\n}\n\nfunction SelectValue({ ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) {\n\treturn <SelectPrimitive.Value data-slot=\"select-value\" {...props} />;\n}\n\nfunction SelectTrigger({\n\tclassName,\n\tsize = \"default\",\n\tchildren,\n\t...props\n}: React.ComponentProps<typeof SelectPrimitive.Trigger> & {\n\tsize?: \"sm\" | \"default\";\n}) {\n\treturn (\n\t\t<SelectPrimitive.Trigger\n\t\t\tclassName={cn(\n\t\t\t\t\"flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[size=default]:h-9 data-[size=sm]:h-8 data-[placeholder]:text-muted-foreground *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 dark:bg-input/30 dark:aria-invalid:ring-destructive/40 dark:hover:bg-input/50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-size={size}\n\t\t\tdata-slot=\"select-trigger\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<SelectPrimitive.Icon asChild>\n\t\t\t\t<ChevronDownIcon className=\"size-4 opacity-50\" />\n\t\t\t</SelectPrimitive.Icon>\n\t\t</SelectPrimitive.Trigger>\n\t);\n}\n\nfunction SelectContent({ className, children, position = \"popper\", ...props }: React.ComponentProps<typeof SelectPrimitive.Content>) {\n\treturn (\n\t\t<SelectPrimitive.Portal>\n\t\t\t<SelectPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tposition === \"popper\" &&\n\t\t\t\t\t\t\"data-[side=left]:-translate-x-1 data-[side=top]:-translate-y-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"select-content\"\n\t\t\t\tposition={position}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<SelectScrollUpButton />\n\t\t\t\t<SelectPrimitive.Viewport\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"p-1\",\n\t\t\t\t\t\tposition === \"popper\" && \"h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1\"\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</SelectPrimitive.Viewport>\n\t\t\t\t<SelectScrollDownButton />\n\t\t\t</SelectPrimitive.Content>\n\t\t</SelectPrimitive.Portal>\n\t);\n}\n\nfunction SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {\n\treturn <SelectPrimitive.Label className={cn(\"px-2 py-1.5 text-muted-foreground text-xs\", className)} data-slot=\"select-label\" {...props} />;\n}\n\nfunction SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {\n\treturn (\n\t\t<SelectPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex w-full cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"select-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"absolute right-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<SelectPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</SelectPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>\n\t\t</SelectPrimitive.Item>\n\t);\n}\n\nfunction SelectSeparator({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) {\n\treturn <SelectPrimitive.Separator className={cn(\"-mx-1 pointer-events-none my-1 h-px bg-border\", className)} data-slot=\"select-separator\" {...props} />;\n}\n\nfunction SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollUpButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-up-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronUpIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollUpButton>\n\t);\n}\n\nfunction SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollDownButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-down-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronDownIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollDownButton>\n\t);\n}\n\nexport {\n\tSelect,\n\tSelectContent,\n\tSelectGroup,\n\tSelectItem,\n\tSelectLabel,\n\tSelectScrollDownButton,\n\tSelectScrollUpButton,\n\tSelectSeparator,\n\tSelectTrigger,\n\tSelectValue,\n};"
+		},
+		{
+			"id": 20,
+			"format": "javascript",
+			"lines": 144,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/dropdown-menu.tsx",
+				"start": 24,
+				"end": 167
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/dropdown-menu.tsx",
+				"start": 24,
+				"end": 167
+			},
+			"fragment": "={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"dropdown-menu-content\"\n\t\t\t\tsideOffset={sideOffset}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</DropdownMenuPrimitive.Portal>\n\t);\n}\n\nfunction DropdownMenuGroup({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {\n\treturn <DropdownMenuPrimitive.Group data-slot=\"dropdown-menu-group\" {...props} />;\n}\n\nfunction DropdownMenuItem({\n\tclassName,\n\tinset,\n\tvariant = \"default\",\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {\n\tinset?: boolean;\n\tvariant?: \"default\" | \"destructive\";\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"data-[variant=destructive]:*:[svg]:!text-destructive relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[inset]:pl-8 data-[variant=destructive]:text-destructive data-[disabled]:opacity-50 data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[variant=destructive]:focus:bg-destructive/20 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-item\"\n\t\t\tdata-variant={variant}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction DropdownMenuCheckboxItem({ className, children, checked, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.CheckboxItem\n\t\t\tchecked={checked}\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"dropdown-menu-checkbox-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"pointer-events-none absolute left-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<DropdownMenuPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</DropdownMenuPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t{children}\n\t\t</DropdownMenuPrimitive.CheckboxItem>\n\t);\n}\n\nfunction DropdownMenuRadioGroup({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {\n\treturn <DropdownMenuPrimitive.RadioGroup data-slot=\"dropdown-menu-radio-group\" {...props} />;\n}\n\nfunction DropdownMenuRadioItem({ className, children, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.RadioItem\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"dropdown-menu-radio-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"pointer-events-none absolute left-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<DropdownMenuPrimitive.ItemIndicator>\n\t\t\t\t\t<CircleIcon className=\"size-2 fill-current\" />\n\t\t\t\t</DropdownMenuPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t{children}\n\t\t</DropdownMenuPrimitive.RadioItem>\n\t);\n}\n\nfunction DropdownMenuLabel({\n\tclassName,\n\tinset,\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {\n\tinset?: boolean;\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.Label\n\t\t\tclassName={cn(\"px-2 py-1.5 font-medium text-sm data-[inset]:pl-8\", className)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-label\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction DropdownMenuSeparator({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {\n\treturn <DropdownMenuPrimitive.Separator className={cn(\"-mx-1 my-1 h-px bg-border\", className)} data-slot=\"dropdown-menu-separator\" {...props} />;\n}\n\nfunction DropdownMenuShortcut({ className, ...props }: React.ComponentProps<\"span\">) {\n\treturn <span className={cn(\"ml-auto text-muted-foreground text-xs tracking-widest\", className)} data-slot=\"dropdown-menu-shortcut\" {...props} />;\n}\n\nfunction DropdownMenuSub({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {\n\treturn <DropdownMenuPrimitive.Sub data-slot=\"dropdown-menu-sub\" {...props} />;\n}\n\nfunction DropdownMenuSubTrigger({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {\n\tinset?: boolean;\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.SubTrigger\n\t\t\tclassName={cn(\n\t\t\t\t\"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[inset]:pl-8 data-[state=open]:text-accent-foreground\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-sub-trigger\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRightIcon className=\"ml-auto size-4\" />\n\t\t</DropdownMenuPrimitive.SubTrigger>\n\t);\n}\n\nfunction DropdownMenuSubContent({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.SubContent\n\t\t\tclassName={cn(\n\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\tclassName\n\t\t\t)}"
+		},
+		{
+			"id": 21,
+			"format": "tsx",
+			"lines": 188,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/dropdown-menu.tsx",
+				"start": 3,
+				"end": 190
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/dropdown-menu.tsx",
+				"start": 3,
+				"end": 190
+			},
+			"fragment": ";\nimport { CheckIcon, ChevronRightIcon, CircleIcon } from \"lucide-react\";\nimport { DropdownMenu as DropdownMenuPrimitive } from \"radix-ui\";\nimport type * as React from \"react\";\n\nfunction DropdownMenu({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {\n\treturn <DropdownMenuPrimitive.Root data-slot=\"dropdown-menu\" {...props} />;\n}\n\nfunction DropdownMenuPortal({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {\n\treturn <DropdownMenuPrimitive.Portal data-slot=\"dropdown-menu-portal\" {...props} />;\n}\n\nfunction DropdownMenuTrigger({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {\n\treturn <DropdownMenuPrimitive.Trigger data-slot=\"dropdown-menu-trigger\" {...props} />;\n}\n\nfunction DropdownMenuContent({ className, sideOffset = 4, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.Portal>\n\t\t\t<DropdownMenuPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"dropdown-menu-content\"\n\t\t\t\tsideOffset={sideOffset}\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</DropdownMenuPrimitive.Portal>\n\t);\n}\n\nfunction DropdownMenuGroup({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {\n\treturn <DropdownMenuPrimitive.Group data-slot=\"dropdown-menu-group\" {...props} />;\n}\n\nfunction DropdownMenuItem({\n\tclassName,\n\tinset,\n\tvariant = \"default\",\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {\n\tinset?: boolean;\n\tvariant?: \"default\" | \"destructive\";\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"data-[variant=destructive]:*:[svg]:!text-destructive relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[inset]:pl-8 data-[variant=destructive]:text-destructive data-[disabled]:opacity-50 data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[variant=destructive]:focus:bg-destructive/20 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-item\"\n\t\t\tdata-variant={variant}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction DropdownMenuCheckboxItem({ className, children, checked, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.CheckboxItem\n\t\t\tchecked={checked}\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"dropdown-menu-checkbox-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"pointer-events-none absolute left-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<DropdownMenuPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</DropdownMenuPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t{children}\n\t\t</DropdownMenuPrimitive.CheckboxItem>\n\t);\n}\n\nfunction DropdownMenuRadioGroup({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {\n\treturn <DropdownMenuPrimitive.RadioGroup data-slot=\"dropdown-menu-radio-group\" {...props} />;\n}\n\nfunction DropdownMenuRadioItem({ className, children, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.RadioItem\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"dropdown-menu-radio-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"pointer-events-none absolute left-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<DropdownMenuPrimitive.ItemIndicator>\n\t\t\t\t\t<CircleIcon className=\"size-2 fill-current\" />\n\t\t\t\t</DropdownMenuPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t{children}\n\t\t</DropdownMenuPrimitive.RadioItem>\n\t);\n}\n\nfunction DropdownMenuLabel({\n\tclassName,\n\tinset,\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {\n\tinset?: boolean;\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.Label\n\t\t\tclassName={cn(\"px-2 py-1.5 font-medium text-sm data-[inset]:pl-8\", className)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-label\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction DropdownMenuSeparator({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {\n\treturn <DropdownMenuPrimitive.Separator className={cn(\"-mx-1 my-1 h-px bg-border\", className)} data-slot=\"dropdown-menu-separator\" {...props} />;\n}\n\nfunction DropdownMenuShortcut({ className, ...props }: React.ComponentProps<\"span\">) {\n\treturn <span className={cn(\"ml-auto text-muted-foreground text-xs tracking-widest\", className)} data-slot=\"dropdown-menu-shortcut\" {...props} />;\n}\n\nfunction DropdownMenuSub({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {\n\treturn <DropdownMenuPrimitive.Sub data-slot=\"dropdown-menu-sub\" {...props} />;\n}\n\nfunction DropdownMenuSubTrigger({\n\tclassName,\n\tinset,\n\tchildren,\n\t...props\n}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {\n\tinset?: boolean;\n}) {\n\treturn (\n\t\t<DropdownMenuPrimitive.SubTrigger\n\t\t\tclassName={cn(\n\t\t\t\t\"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[inset]:pl-8 data-[state=open]:text-accent-foreground\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-inset={inset}\n\t\t\tdata-slot=\"dropdown-menu-sub-trigger\"\n\t\t\t{...props}\n\t\t>\n\t\t\t{children}\n\t\t\t<ChevronRightIcon className=\"ml-auto size-4\" />\n\t\t</DropdownMenuPrimitive.SubTrigger>\n\t);\n}\n\nfunction DropdownMenuSubContent({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {\n\treturn (\n\t\t<DropdownMenuPrimitive.SubContent\n\t\t\tclassName={cn(\n\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"dropdown-menu-sub-content\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport {\n\tDropdownMenu,\n\tDropdownMenuPortal,\n\tDropdownMenuTrigger,\n\tDropdownMenuContent,\n\tDropdownMenuGroup,\n\tDropdownMenuLabel,\n\tDropdownMenuItem,\n\tDropdownMenuCheckboxItem,\n\tDropdownMenuRadioGroup,\n\tDropdownMenuRadioItem,\n\tDropdownMenuSeparator,\n\tDropdownMenuShortcut,\n\tDropdownMenuSub,\n\tDropdownMenuSubTrigger,\n\tDropdownMenuSubContent,\n};"
+		},
+		{
+			"id": 22,
+			"format": "javascript",
+			"lines": 34,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/card.tsx",
+				"start": 5,
+				"end": 38
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/card.tsx",
+				"start": 5,
+				"end": 38
+			},
+			"fragment": ", className)} {...props} />;\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t\"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"card-header\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"font-semibold leading-none\", className)} data-slot=\"card-title\" {...props} />;\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"text-muted-foreground text-sm\", className)} data-slot=\"card-description\" {...props} />;\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"col-start-2 row-span-2 row-start-1 self-start justify-self-end\", className)} data-slot=\"card-action\" {...props} />;\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"px-6\", className)} data-slot=\"card-content\" {...props} />;\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex items-center px-6 [.border-t]:pt-6\", className)}"
+		},
+		{
+			"id": 23,
+			"format": "tsx",
+			"lines": 37,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/card.tsx",
+				"start": 5,
+				"end": 41
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/card.tsx",
+				"start": 5,
+				"end": 41
+			},
+			"fragment": " {...props} />;\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn (\n\t\t<div\n\t\t\tclassName={cn(\n\t\t\t\t\"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"card-header\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"font-semibold leading-none\", className)} data-slot=\"card-title\" {...props} />;\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"text-muted-foreground text-sm\", className)} data-slot=\"card-description\" {...props} />;\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"col-start-2 row-span-2 row-start-1 self-start justify-self-end\", className)} data-slot=\"card-action\" {...props} />;\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"px-6\", className)} data-slot=\"card-content\" {...props} />;\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex items-center px-6 [.border-t]:pt-6\", className)} data-slot=\"card-footer\" {...props} />;\n}\n\nexport { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent };"
+		},
+		{
+			"id": 24,
+			"format": "tsx",
+			"lines": 17,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/button.tsx",
+				"start": 1,
+				"end": 17
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/button.tsx",
+				"start": 1,
+				"end": 17
+			},
+			"fragment": ";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { Slot } from \"radix-ui\";\nimport type * as React from \"react\";\n\nconst buttonVariants = cva(\n\t\"inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium text-sm outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0\",\n\t{\n\t\tvariants: {\n\t\t\tvariant: {\n\t\t\t\tdefault: \"bg-primary text-primary-foreground shadow-xs hover:bg-primary/90\",\n\t\t\t\tdestructive:\n\t\t\t\t\t\"bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40\",\n\t\t\t\toutline:\n\t\t\t\t\t\"border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50\",\n\t\t\t\tsecondary: \"bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80\",\n\t\t\t\taccent"
+		},
+		{
+			"id": 25,
+			"format": "tsx",
+			"lines": 29,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/button.tsx",
+				"start": 23,
+				"end": 51
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/button.tsx",
+				"start": 21,
+				"end": 49
+			},
+			"fragment": "default: \"h-9 px-4 py-2 has-[>svg]:px-3\",\n\t\t\t\tsm: \"h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5\",\n\t\t\t\tlg: \"h-10 rounded-md px-6 has-[>svg]:px-4\",\n\t\t\t\ticon: \"size-9\",\n\t\t\t},\n\t\t},\n\t\tdefaultVariants: {\n\t\t\tvariant: \"default\",\n\t\t\tsize: \"default\",\n\t\t},\n\t}\n);\n\nfunction Button({\n\tclassName,\n\tvariant,\n\tsize,\n\tasChild = false,\n\t...props\n}: React.ComponentProps<\"button\"> &\n\tVariantProps<typeof buttonVariants> & {\n\t\tasChild?: boolean;\n\t}) {\n\tconst Comp = asChild ? Slot.Root : \"button\";\n\n\treturn <Comp className={cn(buttonVariants({ variant, size, className }))} data-slot=\"button\" {...props} />;\n}\n\nexport { Button, buttonVariants };"
+		},
+		{
+			"id": 26,
+			"format": "tsx",
+			"lines": 9,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/badge.tsx",
+				"start": 34,
+				"end": 42
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/badge.tsx",
+				"start": 24,
+				"end": 30
+			},
+			"fragment": ",\n\tasChild = false,\n\t...props\n}: React.ComponentProps<\"span\"> & VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n\tconst Comp = asChild ? Slot.Root : \"span\";\n\treturn <Comp className={cn(badgeVariants({ variant, size }), className)} data-slot=\"badge\" {...props} />;\n}\n\nexport { Badge, badgeVariants };"
+		},
+		{
+			"id": 27,
+			"format": "javascript",
+			"lines": 32,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/alert-dialog.tsx",
+				"start": 38,
+				"end": 69
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/alert-dialog.tsx",
+				"start": 39,
+				"end": 70
+			},
+			"fragment": ",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"alert-dialog-content\"\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</AlertDialogPortal>\n\t);\n}\n\nfunction AlertDialogHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex flex-col gap-2 text-center sm:text-left\", className)} data-slot=\"alert-dialog-header\" {...props} />;\n}\n\nfunction AlertDialogFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex flex-col-reverse gap-2 sm:flex-row sm:justify-end\", className)} data-slot=\"alert-dialog-footer\" {...props} />;\n}\n\nfunction AlertDialogTitle({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {\n\treturn <AlertDialogPrimitive.Title className={cn(\"font-semibold text-lg\", className)} data-slot=\"alert-dialog-title\" {...props} />;\n}\n\nfunction AlertDialogDescription({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {\n\treturn <AlertDialogPrimitive.Description className={cn(\"text-muted-foreground text-sm\", className)} data-slot=\"alert-dialog-description\" {...props} />;\n}\n\nfunction AlertDialogAction({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {\n\treturn <AlertDialogPrimitive.Action className={cn(buttonVariants(), className)} {...props} />;\n}\n\nfunction AlertDialogCancel({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {\n\treturn <AlertDialogPrimitive.Cancel className={cn(buttonVariants({ variant: \"outline\" }), className)}"
+		},
+		{
+			"id": 28,
+			"format": "tsx",
+			"lines": 80,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/ui/src/components/alert-dialog.tsx",
+				"start": 5,
+				"end": 84
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/alert-dialog.tsx",
+				"start": 6,
+				"end": 85
+			},
+			"fragment": ";\n\nfunction AlertDialog({ ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {\n\treturn <AlertDialogPrimitive.Root data-slot=\"alert-dialog\" {...props} />;\n}\n\nfunction AlertDialogTrigger({ ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {\n\treturn <AlertDialogPrimitive.Trigger data-slot=\"alert-dialog-trigger\" {...props} />;\n}\n\nfunction AlertDialogPortal({ ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {\n\treturn <AlertDialogPrimitive.Portal data-slot=\"alert-dialog-portal\" {...props} />;\n}\n\nfunction AlertDialogOverlay({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Overlay>) {\n\treturn (\n\t\t<AlertDialogPrimitive.Overlay\n\t\t\tclassName={cn(\n\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"alert-dialog-overlay\"\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nfunction AlertDialogContent({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Content>) {\n\treturn (\n\t\t<AlertDialogPortal>\n\t\t\t<AlertDialogOverlay />\n\t\t\t<AlertDialogPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 data-[state=closed]:animate-out data-[state=open]:animate-in sm:max-w-(--container-lg)\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"alert-dialog-content\"\n\t\t\t\t{...props}\n\t\t\t/>\n\t\t</AlertDialogPortal>\n\t);\n}\n\nfunction AlertDialogHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex flex-col gap-2 text-center sm:text-left\", className)} data-slot=\"alert-dialog-header\" {...props} />;\n}\n\nfunction AlertDialogFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n\treturn <div className={cn(\"flex flex-col-reverse gap-2 sm:flex-row sm:justify-end\", className)} data-slot=\"alert-dialog-footer\" {...props} />;\n}\n\nfunction AlertDialogTitle({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {\n\treturn <AlertDialogPrimitive.Title className={cn(\"font-semibold text-lg\", className)} data-slot=\"alert-dialog-title\" {...props} />;\n}\n\nfunction AlertDialogDescription({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {\n\treturn <AlertDialogPrimitive.Description className={cn(\"text-muted-foreground text-sm\", className)} data-slot=\"alert-dialog-description\" {...props} />;\n}\n\nfunction AlertDialogAction({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {\n\treturn <AlertDialogPrimitive.Action className={cn(buttonVariants(), className)} {...props} />;\n}\n\nfunction AlertDialogCancel({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {\n\treturn <AlertDialogPrimitive.Cancel className={cn(buttonVariants({ variant: \"outline\" }), className)} {...props} />;\n}\n\nexport {\n\tAlertDialog,\n\tAlertDialogPortal,\n\tAlertDialogOverlay,\n\tAlertDialogTrigger,\n\tAlertDialogContent,\n\tAlertDialogHeader,\n\tAlertDialogFooter,\n\tAlertDialogTitle,\n\tAlertDialogDescription,\n\tAlertDialogAction,\n\tAlertDialogCancel,\n};"
+		},
+		{
+			"id": 29,
+			"format": "typescript",
+			"lines": 21,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/payload/src/migrations/20250629_140555.ts",
+				"start": 1,
+				"end": 21
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/payload/migrations/20250708_140156.ts",
+				"start": 1,
+				"end": 21
+			},
+			"fragment": "import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'\n\nexport async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {\n  await db.execute(sql`\n   CREATE TABLE \"users_sessions\" (\n  \t\"_order\" integer NOT NULL,\n  \t\"_parent_id\" integer NOT NULL,\n  \t\"id\" varchar PRIMARY KEY NOT NULL,\n  \t\"created_at\" timestamp(3) with time zone,\n  \t\"expires_at\" timestamp(3) with time zone NOT NULL\n  );\n  \n  ALTER TABLE \"users_sessions\" ADD CONSTRAINT \"users_sessions_parent_id_fk\" FOREIGN KEY (\"_parent_id\") REFERENCES \"public\".\"users\"(\"id\") ON DELETE cascade ON UPDATE no action;\n  CREATE INDEX \"users_sessions_order_idx\" ON \"users_sessions\" USING btree (\"_order\");\n  CREATE INDEX \"users_sessions_parent_id_idx\" ON \"users_sessions\" USING btree (\"_parent_id\");`)\n}\n\nexport async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {\n  await db.execute(sql`\n   DROP TABLE \"users_sessions\" CASCADE;`)\n}"
+		},
+		{
+			"id": 30,
+			"format": "tsx",
+			"lines": 19,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/common/src/ui/media.tsx",
+				"start": 5,
+				"end": 23
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/ui/src/components/media.tsx",
+				"start": 5,
+				"end": 23
+			},
+			"fragment": "priority: _priority, sizes: _sizes, ...videoProps } = props as ImageProps;\n\treturn videoProps as VideoProps;\n};\n\nconst filterImageProps = (props: ImageProps | VideoProps): ImageProps => {\n\tconst {\n\t\tposter: _poster,\n\t\tautoPlay: _autoPlay,\n\t\tmuted: _muted,\n\t\tloop: _loop,\n\t\tplaysInline: _playsInline,\n\t\tcontrols: _controls,\n\t\t...imageProps\n\t} = props as VideoProps;\n\treturn imageProps as ImageProps;\n};\n\nexport function Media(props: ImageProps | VideoProps) {\n\tif"
+		},
+		{
+			"id": 31,
+			"format": "tsx",
+			"lines": 8,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/common/src/ui/media.tsx",
+				"start": 25,
+				"end": 32
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/ui/src/components/media.tsx",
+				"start": 23,
+				"end": 30
+			},
+			"fragment": "const isVideo = typeof props.media === \"object\" && props.media?.mimeType?.includes(\"video\");\n\n\tif (isVideo) {\n\t\treturn <CMSVideo {...filterVideoProps(props)} />;\n\t}\n\n\treturn <CMSImage {...filterImageProps(props)} />;\n}"
+		},
+		{
+			"id": 32,
+			"format": "javascript",
+			"lines": 92,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/components/ui/select.tsx",
+				"start": 35,
+				"end": 126
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/select.tsx",
+				"start": 33,
+				"end": 118
+			},
+			"fragment": ")}\n\t\t\t\tdata-size={size}\n\t\t\t\tdata-slot=\"select-trigger\"\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t{children}\n\t\t\t\t<SelectPrimitive.Icon asChild>\n\t\t\t\t\t<ChevronDownIcon className=\"size-4 opacity-50\" />\n\t\t\t\t</SelectPrimitive.Icon>\n\t\t\t</SelectPrimitive.Trigger>\n\t\t\t{error && (\n\t\t\t\t<p aria-live=\"polite\" className=\"mt-2 text-destructive text-xs\" role=\"alert\">\n\t\t\t\t\t{error}\n\t\t\t\t</p>\n\t\t\t)}\n\t\t</div>\n\t);\n}\n\nfunction SelectContent({ className, children, position = \"popper\", ...props }: React.ComponentProps<typeof SelectPrimitive.Content>) {\n\treturn (\n\t\t<SelectPrimitive.Portal>\n\t\t\t<SelectPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tposition === \"popper\" &&\n\t\t\t\t\t\t\"data-[side=left]:-translate-x-1 data-[side=top]:-translate-y-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"select-content\"\n\t\t\t\tposition={position}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<SelectScrollUpButton />\n\t\t\t\t<SelectPrimitive.Viewport\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"p-1\",\n\t\t\t\t\t\tposition === \"popper\" && \"h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1\"\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</SelectPrimitive.Viewport>\n\t\t\t\t<SelectScrollDownButton />\n\t\t\t</SelectPrimitive.Content>\n\t\t</SelectPrimitive.Portal>\n\t);\n}\n\nfunction SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {\n\treturn <SelectPrimitive.Label className={cn(\"px-2 py-1.5 text-muted-foreground text-xs\", className)} data-slot=\"select-label\" {...props} />;\n}\n\nfunction SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {\n\treturn (\n\t\t<SelectPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex w-full cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"select-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"absolute right-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<SelectPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</SelectPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>\n\t\t</SelectPrimitive.Item>\n\t);\n}\n\nfunction SelectSeparator({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) {\n\treturn <SelectPrimitive.Separator className={cn(\"-mx-1 pointer-events-none my-1 h-px bg-border\", className)} data-slot=\"select-separator\" {...props} />;\n}\n\nfunction SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollUpButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-up-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronUpIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollUpButton>\n\t);\n}\n\nfunction SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollDownButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}"
+		},
+		{
+			"id": 33,
+			"format": "tsx",
+			"lines": 97,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/components/ui/select.tsx",
+				"start": 50,
+				"end": 146
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/app/components/ui/select.tsx",
+				"start": 42,
+				"end": 138
+			},
+			"fragment": ">\n\t);\n}\n\nfunction SelectContent({ className, children, position = \"popper\", ...props }: React.ComponentProps<typeof SelectPrimitive.Content>) {\n\treturn (\n\t\t<SelectPrimitive.Portal>\n\t\t\t<SelectPrimitive.Content\n\t\t\t\tclassName={cn(\n\t\t\t\t\t\"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in\",\n\t\t\t\t\tposition === \"popper\" &&\n\t\t\t\t\t\t\"data-[side=left]:-translate-x-1 data-[side=top]:-translate-y-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1\",\n\t\t\t\t\tclassName\n\t\t\t\t)}\n\t\t\t\tdata-slot=\"select-content\"\n\t\t\t\tposition={position}\n\t\t\t\t{...props}\n\t\t\t>\n\t\t\t\t<SelectScrollUpButton />\n\t\t\t\t<SelectPrimitive.Viewport\n\t\t\t\t\tclassName={cn(\n\t\t\t\t\t\t\"p-1\",\n\t\t\t\t\t\tposition === \"popper\" && \"h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1\"\n\t\t\t\t\t)}\n\t\t\t\t>\n\t\t\t\t\t{children}\n\t\t\t\t</SelectPrimitive.Viewport>\n\t\t\t\t<SelectScrollDownButton />\n\t\t\t</SelectPrimitive.Content>\n\t\t</SelectPrimitive.Portal>\n\t);\n}\n\nfunction SelectLabel({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) {\n\treturn <SelectPrimitive.Label className={cn(\"px-2 py-1.5 text-muted-foreground text-xs\", className)} data-slot=\"select-label\" {...props} />;\n}\n\nfunction SelectItem({ className, children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {\n\treturn (\n\t\t<SelectPrimitive.Item\n\t\t\tclassName={cn(\n\t\t\t\t\"relative flex w-full cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2\",\n\t\t\t\tclassName\n\t\t\t)}\n\t\t\tdata-slot=\"select-item\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<span className=\"absolute right-2 flex size-3.5 items-center justify-center\">\n\t\t\t\t<SelectPrimitive.ItemIndicator>\n\t\t\t\t\t<CheckIcon className=\"size-4\" />\n\t\t\t\t</SelectPrimitive.ItemIndicator>\n\t\t\t</span>\n\t\t\t<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>\n\t\t</SelectPrimitive.Item>\n\t);\n}\n\nfunction SelectSeparator({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Separator>) {\n\treturn <SelectPrimitive.Separator className={cn(\"-mx-1 pointer-events-none my-1 h-px bg-border\", className)} data-slot=\"select-separator\" {...props} />;\n}\n\nfunction SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollUpButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-up-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronUpIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollUpButton>\n\t);\n}\n\nfunction SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {\n\treturn (\n\t\t<SelectPrimitive.ScrollDownButton\n\t\t\tclassName={cn(\"flex cursor-default items-center justify-center py-1\", className)}\n\t\t\tdata-slot=\"select-scroll-down-button\"\n\t\t\t{...props}\n\t\t>\n\t\t\t<ChevronDownIcon className=\"size-4\" />\n\t\t</SelectPrimitive.ScrollDownButton>\n\t);\n}\n\nexport {\n\tSelect,\n\tSelectContent,\n\tSelectGroup,\n\tSelectItem,\n\tSelectLabel,\n\tSelectScrollDownButton,\n\tSelectScrollUpButton,\n\tSelectSeparator,\n\tSelectTrigger,\n\tSelectValue,\n};"
+		},
+		{
+			"id": 34,
+			"format": "typescript",
+			"lines": 14,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/payload/src/index.ts",
+				"start": 164,
+				"end": 177
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/nova-config.ts",
+				"start": 191,
+				"end": 204
+			},
+			"fragment": "[],\n\t\t\t\t\tfields: ({ defaultFields }) => {\n\t\t\t\t\t\tconst defaultFieldsWithoutUrl = defaultFields.filter((field) => {\n\t\t\t\t\t\t\tif (\"name\" in field && field.name === \"url\") return false;\n\t\t\t\t\t\t\treturn true;\n\t\t\t\t\t\t});\n\n\t\t\t\t\t\treturn [\n\t\t\t\t\t\t\t...defaultFieldsWithoutUrl,\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tname: \"url\",\n\t\t\t\t\t\t\t\ttype: \"text\",\n\t\t\t\t\t\t\t\tadmin: {\n\t\t\t\t\t\t\t\t\tcondition: ({"
+		},
+		{
+			"id": 35,
+			"format": "typescript",
+			"lines": 56,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/packages/email/src/tailwind.ts",
+				"start": 10,
+				"end": 65
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/packages/nova/src/emails/tailwind.ts",
+				"start": 28,
+				"end": 83
+			},
+			"fragment": ",\n\t\t\t},\n\t\t\tfontSize: {\n\t\t\t\txs: [\"12px\", { lineHeight: \"16px\" }],\n\t\t\t\tsm: [\"14px\", { lineHeight: \"20px\" }],\n\t\t\t\tbase: [\"16px\", { lineHeight: \"24px\" }],\n\t\t\t\tlg: [\"18px\", { lineHeight: \"28px\" }],\n\t\t\t\txl: [\"20px\", { lineHeight: \"28px\" }],\n\t\t\t\t\"2xl\": [\"24px\", { lineHeight: \"32px\" }],\n\t\t\t\t\"3xl\": [\"30px\", { lineHeight: \"36px\" }],\n\t\t\t\t\"4xl\": [\"36px\", { lineHeight: \"36px\" }],\n\t\t\t\t\"5xl\": [\"48px\", { lineHeight: \"1\" }],\n\t\t\t\t\"6xl\": [\"60px\", { lineHeight: \"1\" }],\n\t\t\t\t\"7xl\": [\"72px\", { lineHeight: \"1\" }],\n\t\t\t\t\"8xl\": [\"96px\", { lineHeight: \"1\" }],\n\t\t\t\t\"9xl\": [\"144px\", { lineHeight: \"1\" }],\n\t\t\t},\n\t\t\tspacing: {\n\t\t\t\tpx: \"1px\",\n\t\t\t\t0: \"0\",\n\t\t\t\t0.5: \"2px\",\n\t\t\t\t1: \"4px\",\n\t\t\t\t1.5: \"6px\",\n\t\t\t\t2: \"8px\",\n\t\t\t\t2.5: \"10px\",\n\t\t\t\t3: \"12px\",\n\t\t\t\t3.5: \"14px\",\n\t\t\t\t4: \"16px\",\n\t\t\t\t5: \"20px\",\n\t\t\t\t6: \"24px\",\n\t\t\t\t7: \"28px\",\n\t\t\t\t8: \"32px\",\n\t\t\t\t9: \"36px\",\n\t\t\t\t10: \"40px\",\n\t\t\t\t11: \"44px\",\n\t\t\t\t12: \"48px\",\n\t\t\t\t14: \"56px\",\n\t\t\t\t16: \"64px\",\n\t\t\t\t20: \"80px\",\n\t\t\t\t24: \"96px\",\n\t\t\t\t28: \"112px\",\n\t\t\t\t32: \"128px\",\n\t\t\t\t36: \"144px\",\n\t\t\t\t40: \"160px\",\n\t\t\t\t44: \"176px\",\n\t\t\t\t48: \"192px\",\n\t\t\t\t52: \"208px\",\n\t\t\t\t56: \"224px\",\n\t\t\t\t60: \"240px\",\n\t\t\t\t64: \"256px\",\n\t\t\t\t72: \"288px\",\n\t\t\t\t80: \"320px\",\n\t\t\t\t96: \"384px\",\n\t\t\t},\n\t\t},\n\t};"
+		},
+		{
+			"id": 36,
+			"format": "typescript",
+			"lines": 11,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/utils/generate-meta.ts",
+				"start": 84,
+				"end": 94
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/documentation/registry/nova/lib/generate-meta.ts",
+				"start": 59,
+				"end": 69
+			},
+			"fragment": ") return;\n\treturn [\n\t\t{\n\t\t\turl: baseImage.url || \"\",\n\t\t\twidth: baseImage.width || 1200,\n\t\t\theight: baseImage.height || 630,\n\t\t\talt: alt || baseImage.alt || \"\",\n\t\t\ttype: baseImage.mimeType || \"image/png\",\n\t\t},\n\t];\n}"
+		},
+		{
+			"id": 37,
+			"format": "markdown",
+			"lines": 83,
+			"firstFile": {
+				"project": "mariol",
+				"path": "mariol/apps/platform/README.md",
+				"start": 3,
+				"end": 85
+			},
+			"secondFile": {
+				"project": "nova",
+				"path": "nova/apps/dashboard/README.md",
+				"start": 3,
+				"end": 85
+			},
+			"fragment": "Payload 3.0 Beta Demo\n\nThis repo showcases a demo of the Payload 3.0 Beta running completely within Next.js.\n\n> [!IMPORTANT]\n> It's extremely important to note that as of now, this demo contains BETA software and you are 100% guaranteed to run into bugs / weird stuff.\n>\n> We're actively working toward a stable release as fast as we possibly can.\n\n### Highlights\n\n1. Payload is now Next.js-native\n1. Turbopack works out of the box (this will get faster over time, expect more here)\n1. The Payload admin UI is built with React Server Components and automatically eliminates server-side code from your admin bundle, completely alleviating the need to use Webpack aliases to remove hooks, access control, etc.\n1. Payload is now fully-ESM across the board\n1. GraphQL is now initialized only when you hit the GraphQL endpoint, and does not affect overhead of REST API routes\n1. All UI components have been abstracted into a separate `@payloadcms/ui` package, which will be fully documented and exposed for your re-use once we hit stable 3.0 or before\n1. You can run your own Next.js site alongside of Payload in the same app\n1. You can now deploy Payload to Vercel, and there will be official support for Vercel Blob Storage coming soon (so no S3 needed for files)\n1. Server-side HMR works out of the box, with no need for `nodemon` or similar. When the Payload config changes, your app will automatically re-initialize Payload seamlessly in the background\n1. All custom React components can be server components by default, and you can decide if you want them to be server components or client components\n1. Sharp has been abstracted to be an optional dependency\n1. Payload now relies on the Web Request / Response APIs rather than the Node Request / Response\n1. Express can still be used with Next.js' Custom Server functionality\n1. Payload itself has slimmed down significantly and can now be fully portable, run anywhere. You can leverage the Payload Local API completely outside of Next.js if you want.\n1. The data layer, including the shape of the database Payload used and the API responses in 2.0, has not been affected whatsoever\n\n### Work to come\n\nWe are making this available to our community so that we can gather your feedback and test the new approach that Payload is taking. Don't expect it to be fully functional yet. There are some things that we are aware of that are not yet completed, but we're going to keep blazing through the remaining items as fast as we can to reach stable 3.0 as quickly and efficiently as possible. Here are a few of the items that we are still working on (not a full list):\n\n1. Documentation\n1. Vercel Blob Storage adapter\n1. Lots of bugs for sure\n1. 100% of tests passing\n1. Compiler speed improvements (turbo is beta still, it is slower than it should be. it will get faster)\n1. Overall speed improvements\n1. An install script to be able to install Payload easily into any existing Next.js app\n1. A full list of breaking changes for 2.0 -> 3.0, including an in-depth migration guide\n\n### Existing Nextjs project\n\nYou can install Payload into your existing Nextjs project using this command:\n```\nnpx create-payload-app@beta\n```\nContents from `src/app` will have to be moved into a new directory `src/app/(app)` so that Payload's root layout and routes can remain isolated from the rest of your app.\n\n### Using this repo\n\nTo try out this repo yourself, follow the steps below:\n\n1. Clone the repo to your computer (`git clone git@github.com:payloadcms/payload-3.0-demo.git`)\n2. `cd` into the new folder by running `cd ./payload-3.0-demo`\n3. Copy the `.env.example` by running `cp .env.example .env` in the repo, then fill out the values including the connection string to your DB\n4. Install dependencies with whatever package manager you use (`yarn`, `npm install`, `pnpm i`, etc.)\n5. Start your database. For local postgresql use `.\\start-database.sh` to start it in docker container.\n6. Fire it up (`yarn dev`, `npm run dev`, `pnpm dev`, etc.)\n7. Visit https://localhost:3000 and log in with the user created within the config's `onInit` method\n\n### Follow along with breaking changes\n\nThere is a possibility that we will make breaking changes before releasing the full stable version of Payload 3.0.\n\n**To follow along with breaking changes in advance of the full, stable release,** you can keep an eye on the [CHANGELOG.md](https://github.com/payloadcms/payload-3.0-demo/blob/main/CHANGELOG.md).\n\n### Technical details\n\n**The app folder**\n\nYou'll see that Payload requires a few files to be present in your `/app` folder. There are files for the admin UI as well as files for all route handlers. We've consolidated all admin views into a single `page.tsx` and consolidated most of the REST endpoints into a single `route.ts` file for simplicity, but also for development performance. With this pattern, you only have to compile the admin UI / REST API / GraphQL API a single time - and from there, it will be lightning-fast.\n\n**The `next.config.js` `withPayload` function**\n\nYou'll see in the Next.js config that we have a `withPayload` function installed. This function is required for Payload to operate, and it ensures compatibility with packages that Payload needs such as `drizzle-kit`, `sharp`, `pino`, and `mongodb`.\n\n**Using a TypeScript alias to point to your Payload config**\n\nIn the `tsconfig.json` within this repo, you'll see that we have `paths` set up to point `@payload-config` to the Payload config, which is located in the root. You can put your config wherever you want. By default, the `page.tsx` files and `route.ts` files within the `/app` folder use this alias. In the future, we might make it optional to use `paths` - and by default, we might just hard-code relative path imports to the config. We would like to hear your feedback on this part. What do you prefer? Use `paths` or just use relative imports?\n\n---\n\n### Find a bug?\n\nOpen "
+		}
+	]
+}
