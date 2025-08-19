@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AsanaTimeAnalysis } from "./asana-time-analysis";
 import { AsanaTimeChart } from "./asana-time-chart";
@@ -105,21 +106,21 @@ export default function ConcurrencePage() {
 				<div className="sticky top-0 p-6">
 					<h3 className="mb-4 font-semibold text-foreground text-lg">Sommaire</h3>
 					<nav className="space-y-2">
-						<a className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#cibles">
+						<Link className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#cibles">
 							1. Rappel des cibles des projets
-						</a>
-						<a className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#fonctionnalites">
+						</Link>
+						<Link className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#fonctionnalites">
 							2. Comparatif des fonctionnalités
-						</a>
-						<a className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#code">
+						</Link>
+						<Link className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#code">
 							3. Analyse de similarité de code
-						</a>
-						<a className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#contributions">
-							4. Analyse des contributions GitLab
-						</a>
-						<a className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#temps">
-							5. Analyse du temps de travail (Asana)
-						</a>
+						</Link>
+						<Link className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#temps">
+							4. Analyse du temps de travail (Asana)
+						</Link>
+						<Link className="block py-1 text-muted-foreground text-sm transition-colors duration-200 hover:text-foreground" href="#contributions">
+							5. Analyse des contributions GitLab
+						</Link>
 					</nav>
 				</div>
 			</div>
