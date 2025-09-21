@@ -9,6 +9,9 @@
 		"typecheck": "tsc --noEmit",
 		"check": "bunx --bun ultracite fix ./"
 	},
+	"engines": {
+		"node": ">=20.0.0"
+	},
 	"dependencies": {
 		"@mdx-js/loader": "^3.1.1",
 		"@mdx-js/react": "^3.1.1",
