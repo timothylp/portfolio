@@ -18,7 +18,7 @@ export async function solveCapInvisible(): Promise<{ token: string } | null> {
 }
 
 declare global {
-	// biome-ignore lint/nursery/useConsistentTypeDefinitions: C'est un interface global
+	// biome-ignore lint/style/useConsistentTypeDefinitions: C'est un interface global
 	interface Window {
 		Cap: new (config: {
 			apiEndpoint: string;

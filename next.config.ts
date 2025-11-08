@@ -4,7 +4,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
 	reactStrictMode: true,
 
-	// biome-ignore lint/suspicious/useAwait: rewrites needs to be async
 	async rewrites() {
 		return [
 			{
@@ -23,22 +22,26 @@ const nextConfig: NextConfig = {
 	},
 
 	pageExtensions: ["md", "mdx", "ts", "tsx"],
-
-	productionBrowserSourceMaps: process.env.NODE_ENV === "development",
-
-	experimental:
-		process.env.NODE_ENV === "production"
-			? {
-					reactCompiler: true,
-					preloadEntriesOnStart: false,
-					webpackMemoryOptimizations: true,
-					serverSourceMaps: false,
-				}
-			: undefined,
 };
 
 const withMdx = createMdx({
 	extension: /\.(md|mdx)$/,
 });
 
-export default withMdx(nextConfig);
+const withCustom = (config: NextConfig) => {
+	if (process.env.NODE_ENV === "production") {
+		return {
+			...config,
+			reactCompiler: true,
+			productionBrowserSourceMaps: false,
+			experimental: {
+				...config.experimental,
+				serverSourceMaps: false,
+			},
+		};
+	}
+
+	return config;
+};
+
+export default withMdx(withCustom(nextConfig));
