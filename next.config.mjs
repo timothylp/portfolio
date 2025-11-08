@@ -1,7 +1,7 @@
 import createMdx from "@next/mdx";
-import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
 	reactStrictMode: true,
 
 	async rewrites() {
@@ -28,7 +28,7 @@ const withMdx = createMdx({
 	extension: /\.(md|mdx)$/,
 });
 
-const withCustom = (config: NextConfig) => {
+const withCustom = (config) => {
 	if (process.env.NODE_ENV === "production") {
 		return {
 			...config,
