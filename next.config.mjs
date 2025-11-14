@@ -4,14 +4,7 @@ import createMdx from "@next/mdx";
 const nextConfig = {
 	reactStrictMode: true,
 
-	async rewrites() {
-		return [
-			{
-				source: "/script.js",
-				destination: "https://stats.timothylepallec.com/script.js",
-			},
-		];
-	},
+	typedRoutes: true,
 
 	images: {
 		minimumCacheTTL: 31_536_000, // 1 year

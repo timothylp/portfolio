@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import { GithubIcon } from "@/components/icons/github";
 import { XIcon } from "@/components/icons/x";
@@ -9,13 +10,13 @@ export function Socials(props: React.ComponentProps<"div">) {
 	return (
 		<div className={cn("flex gap-2", props.className)}>
 			<Button asChild size="sm" variant="secondary">
-				<Link data-umami-event="open-social" data-umami-event-social="x" href={SOCIALS.x.href} target="_blank">
+				<Link data-umami-event="open-social" data-umami-event-social="x" href={SOCIALS.x.href as Route} target="_blank">
 					<XIcon className="size-3.5" />
 					{SOCIALS.x.label}
 				</Link>
 			</Button>
 			<Button asChild size="sm" variant="secondary">
-				<Link data-umami-event="open-social" data-umami-event-social="github" href={SOCIALS.github.href} target="_blank">
+				<Link data-umami-event="open-social" data-umami-event-social="github" href={SOCIALS.github.href as Route} target="_blank">
 					<GithubIcon className="size-3.5" />
 					{SOCIALS.github.label}
 				</Link>

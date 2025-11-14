@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,7 +28,7 @@ export function Projects() {
 							className="sm:-mx-4 flex items-center gap-4 rounded-lg sm:p-4 sm:hover:bg-accent"
 							data-umami-event="open-project"
 							data-umami-event-project={project.title}
-							href={project.link}
+							href={project.link as Route}
 							prefetch
 							rel="noopener noreferrer"
 							target="_blank"
