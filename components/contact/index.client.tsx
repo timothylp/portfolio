@@ -78,42 +78,60 @@ function ContactForm({ className, setOpen, isProduction }: React.ComponentProps<
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
+	const getCapToken = async (): Promise<string | undefined> => {
+		if (!process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
+			return;
+		}
+
+		let solution: { token: string } | null = null;
+		try {
+			solution = await solveCapInvisible();
+		} catch (err) {
+			console.error("Erreur lors de la génération du token CAP:", err);
+		}
+
+		return solution?.token;
+	};
+
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setError(null);
 		setIsLoading(true);
 
 		const formData = new FormData(e.target as HTMLFormElement);
+		const capToken = await getCapToken();
+		if (capToken) {
+			formData.append("cap-token", capToken);
+		}
+
+		let response: { success: boolean; error: string | null } | null = null;
 		try {
-			if (process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
-				const solution = await solveCapInvisible();
-				if (solution?.token) {
-					formData.append("cap-token", solution.token);
-				}
-			}
-
-			const response = await sendEmail(formData);
-
-			if (response.success) {
-				toast.success("Votre message a été envoyé avec succès", {
-					description: "Je vous répondrai dans les plus brefs délais",
-				});
-
-				if (isProduction) {
-					window.umami?.track("contact-form-submitted", {
-						email: form.email,
-					});
-				}
-
-				setForm({ email: "", message: "" });
-				setOpen(false);
-			} else {
-				setError(response.error);
-			}
+			response = await sendEmail(formData);
+			setIsLoading(false);
 		} catch (err) {
 			console.error("Erreur lors de l'envoi du message:", err);
-		} finally {
 			setIsLoading(false);
+		}
+
+		if (!response) {
+			return;
+		}
+
+		if (response.success) {
+			toast.success("Votre message a été envoyé avec succès", {
+				description: "Je vous répondrai dans les plus brefs délais",
+			});
+
+			if (isProduction && window.umami) {
+				window.umami.track("contact-form-submitted", {
+					email: form.email,
+				});
+			}
+
+			setForm({ email: "", message: "" });
+			setOpen(false);
+		} else {
+			setError(response.error);
 		}
 	};
 
