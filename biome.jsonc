@@ -18,6 +18,12 @@
 					"options": {
 						"strictCase": false
 					}
+				},
+				"useConsistentTypeDefinitions": {
+					"level": "info",
+					"options": {
+						"style": "type"
+					}
 				}
 			},
 			"complexity": {
