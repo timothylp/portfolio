@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import type { Metadata } from "next";
 import { Contact } from "@/components/contact";
 import { Header } from "@/components/header";
 import { Projects } from "@/components/projects";
@@ -18,3 +19,9 @@ export default function HomePage() {
 		</>
 	);
 }
+
+export const metadata: Metadata = {
+	alternates: {
+		canonical: "/",
+	},
+};

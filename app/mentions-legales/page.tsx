@@ -6,6 +6,9 @@ import LegalContent from "@/content/legal.mdx";
 export const metadata: Metadata = {
 	title: "Mentions légales",
 	description: "Mentions légales du site",
+	alternates: {
+		canonical: "/mentions-legales",
+	},
 };
 
 export default function LegalPage() {

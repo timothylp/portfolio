@@ -6,6 +6,9 @@ import PrivacyContent from "@/content/privacy.mdx";
 export const metadata: Metadata = {
 	title: "Politique de confidentialité",
 	description: "Politique de confidentialité et traitement des données personnelles",
+	alternates: {
+		canonical: "/politique-de-confidentialite",
+	},
 };
 
 export default function PrivacyPage() {

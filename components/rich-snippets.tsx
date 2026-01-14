@@ -16,11 +16,14 @@ function generatePersonRichSnippet() {
 		name: "Timothy Le Pallec",
 		url: "https://timothylepallec.com",
 		sameAs: [SOCIALS.github.href, SOCIALS.x.href],
-		jobTitle: "Développeur Web Fullstack",
+		jobTitle: "Fondateur de Mariol | Expert Next.js & PayloadCMS",
+		description:
+			"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
 		worksFor: {
 			"@type": "Organization",
 			name: "Mariol",
 		},
+		knowsAbout: ["Next.js", "PayloadCMS", "Fullstack Development", "SaaS"],
 	};
 
 	return JSON.stringify(richSnippet);
