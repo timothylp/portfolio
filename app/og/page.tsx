@@ -5,7 +5,7 @@ export default function OGImage() {
 	if (process.env.NODE_ENV === "production") notFound();
 
 	const title = "Timothy Le Pallec";
-	const description = "Développeur Web Fullstack";
+	const description = "Co-fondateur et CTO de Mariol | Expert Next.js & PayloadCMS";
 
 	return (
 		<div className="absolute inset-0 flex h-screen w-screen flex-col items-center justify-center gap-4 bg-black">

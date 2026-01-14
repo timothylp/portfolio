@@ -8,7 +8,7 @@ export function Header() {
 				<h1 className="flex flex-col">
 					<span className="font-semibold text-2xl tracking-tighter">Timothy Le Pallec</span>
 					<span className="sr-only"> - </span>
-					<span className="font-mono">Développeur Web Fullstack</span>
+					<span className="font-mono">Co-fondateur et CTO de Mariol</span>
 				</h1>
 				<Socials />
 			</div>

@@ -18,9 +18,9 @@ function generatePersonRichSnippet() {
 		name: "Timothy Le Pallec",
 		url: BASE_URL,
 		sameAs: [SOCIALS.github.href, SOCIALS.x.href],
-		jobTitle: "Fondateur de Mariol | Expert Next.js & PayloadCMS",
+		jobTitle: "Co-fondateur et CTO de Mariol | Expert Next.js & PayloadCMS",
 		description:
-			"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
+			"Expert en architectures Next.js et PayloadCMS. Co-fondateur et CTO de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
 		worksFor: {
 			"@type": "Organization",
 			name: "Mariol",
@@ -39,7 +39,7 @@ function generateWebSiteRichSnippet() {
 		name: "Timothy Le Pallec",
 		url: BASE_URL,
 		description:
-			"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
+			"Expert en architectures Next.js et PayloadCMS. Co-fondateur et CTO de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
 		author: {
 			"@type": "Person",
 			name: "Timothy Le Pallec",

@@ -23,11 +23,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	metadataBase: new URL(BASE_URL),
 	title: {
-		default: "Timothy Le Pallec | Expert Next.js & PayloadCMS | Fondateur de Mariol",
+		default: "Timothy Le Pallec | Co-fondateur et CTO de Mariol | Expert Next.js & PayloadCMS",
 		template: "%s | Timothy Le Pallec",
 	},
 	description:
-		"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
+		"Expert en architectures Next.js et PayloadCMS. Co-fondateur et CTO de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
 	keywords: [
 		"Timothy Le Pallec",
 		"Next.js",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Timothy Le Pallec",
 		description:
-			"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
+			"Expert en architectures Next.js et PayloadCMS. Co-fondateur et CTO de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
 		url: BASE_URL,
 		siteName: "Timothy Le Pallec",
 		locale: "fr_FR",
