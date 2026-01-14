@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 const texts = {
 	button: "Parlons de votre projet",
 	title: "Contact",
-	description: "Je suis disponible pour discuter de vos projets.\nN'hésitez pas à me contacter.",
+	description: "Vous avez un projet en tête ou simplement envie d'échanger ?\nN'hésitez pas à me contacter, je réponds à tous les messages.",
 };
 
 export function ContactClient({ className, isProduction }: React.ComponentProps<"button"> & { isProduction: boolean }) {

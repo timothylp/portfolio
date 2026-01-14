@@ -28,6 +28,21 @@ export const metadata: Metadata = {
 	},
 	description:
 		"Expert en architectures Next.js et PayloadCMS. Fondateur de Mariol, je conçois des solutions web haute performance alliant simplicité d'usage et excellence technique.",
+	keywords: [
+		"Timothy Le Pallec",
+		"Next.js",
+		"PayloadCMS",
+		"Mariol",
+		"Développeur Web Fullstack",
+		"Architecture Web",
+		"Headless CMS",
+		"TypeScript",
+		"React",
+		"Performance Web",
+		"SaaS",
+		"Lead Developer",
+	],
+	authors: [{ name: "Timothy Le Pallec", url: BASE_URL }],
 	openGraph: {
 		title: "Timothy Le Pallec",
 		description:
