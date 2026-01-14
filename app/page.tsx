@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { Contact } from "@/components/contact";
+import { FAQ } from "@/components/faq";
 import { Header } from "@/components/header";
 import { Projects } from "@/components/projects";
 import Introduction from "@/content/introduction.mdx";
@@ -15,6 +16,7 @@ export default function HomePage() {
 			<Header />
 			<Introduction components={overrideComponents} />
 			<Projects />
+			<FAQ />
 			<Contact />
 		</>
 	);
