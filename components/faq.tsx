@@ -12,7 +12,7 @@ const faqItems: FAQItem[] = [
 	},
 	{
 		question: "Quelle est ton expertise technique principale ?",
-		answer: "Je me spécialise dans l'écosystème Next.js et les architectures Headless (notamment avec PayloadCMS). Mon approche est de bâtir des produits scalables, sécurisés et centrés sur l'expérience utilisateur (UX).",
+		answer: "Je me spécialise dans l'écosystème Next.js et les applications avec PayloadCMS. Mon approche est de bâtir des produits scalables, sécurisés et centrés sur l'expérience utilisateur (UX).",
 	},
 	{
 		question: "Es-tu disponible pour de nouveaux projets ou conseils ?",

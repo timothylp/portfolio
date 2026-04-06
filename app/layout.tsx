@@ -35,7 +35,6 @@ export const metadata: Metadata = {
 		"Mariol",
 		"Développeur Web Fullstack",
 		"Architecture Web",
-		"Headless CMS",
 		"TypeScript",
 		"React",
 		"Performance Web",

@@ -15,9 +15,18 @@ const projects = [
 		image: "/projects/maison-notre.png",
 		title: "Maison Nôtre",
 		description: "Studio créatif spécialisé en identité visuelle et direction artistique, au service des marques élégantes et ambitieuses.",
-		details: "Développement Fullstack • Next.js, Headless CMS • Performance et design sur mesure",
+		details: "Développement Fullstack • Next.js, PayloadCMS • Performance et design sur mesure",
 		link: "https://maison-notre.com",
 		imageAlt: "Logo de Maison Nôtre, studio créatif spécialisé en identité visuelle",
+	},
+	{
+		image: "/projects/lerebootcamp-tracker.png",
+		title: "Le Reboot Camp - Tracker",
+		description:
+			"Application compagnon du programme Le Reboot Camp : suivi d'habitudes gamifié, niveaux, streaks et classement pour ancrer une routine durable.",
+		details: "Développement Fullstack • PayloadCMS, SQLite (Turso), Expo",
+		link: "https://play.google.com/store/apps/details?id=com.lerebootcamp.tracker",
+		imageAlt: "Icône de l'application Le RebootCamp Tracker, suivi d'habitudes",
 	},
 ];
 
