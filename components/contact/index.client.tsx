@@ -11,9 +11,18 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { solveCapInvisible } from "@/lib/cap/index.client";
+import { solveCapWidgetToken } from "@/lib/cap/index.client";
 import { sendEmail } from "@/lib/contacts";
 import { cn } from "@/lib/utils";
+
+declare global {
+	// biome-ignore lint/style/useConsistentTypeDefinitions: C'est un interface global
+	interface Window {
+		umami?: {
+			track: (event: string, data?: Record<string, unknown>) => void;
+		};
+	}
+}
 
 const texts = {
 	button: "Parlons de votre projet",
@@ -78,30 +87,16 @@ function ContactForm({ className, setOpen, isProduction }: React.ComponentProps<
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
-	const getCapToken = async (): Promise<string | undefined> => {
-		if (!process.env.NEXT_PUBLIC_CAP_API_ENDPOINT) {
-			return;
-		}
-
-		let solution: { token: string } | null = null;
-		try {
-			solution = await solveCapInvisible();
-		} catch (err) {
-			console.error("Erreur lors de la génération du token CAP:", err);
-		}
-
-		return solution?.token;
-	};
-
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setError(null);
 		setIsLoading(true);
 
-		const formData = new FormData(e.target as HTMLFormElement);
-		const capToken = await getCapToken();
-		if (capToken) {
-			formData.append("cap-token", capToken);
+		const formData = new FormData(e.target);
+
+		const token = await solveCapWidgetToken(process.env.NEXT_PUBLIC_CAP_API_ENDPOINT);
+		if (token) {
+			formData.append("cap-token", token);
 		}
 
 		let response: { success: boolean; error: string | null } | null = null;

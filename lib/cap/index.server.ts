@@ -1,5 +1,3 @@
-"use server";
-
 export async function verifyCap(token: string) {
 	if (!(process.env.NEXT_PUBLIC_CAP_API_ENDPOINT && process.env.CAP_SECRET_KEY)) {
 		return true;
