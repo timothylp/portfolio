@@ -3,7 +3,7 @@ import createMdx from "@next/mdx";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-
+	reactCompiler: true,
 	typedRoutes: true,
 
 	images: {
@@ -25,10 +25,10 @@ const withCustom = (config) => {
 	if (process.env.NODE_ENV === "production") {
 		return {
 			...config,
-			reactCompiler: true,
 			productionBrowserSourceMaps: false,
 			experimental: {
 				...config.experimental,
+				preloadEntriesOnStart: false,
 				serverSourceMaps: false,
 			},
 		};
