@@ -19,15 +19,15 @@ const projects = [
 		link: "https://maison-notre.com",
 		imageAlt: "Logo de Maison Nôtre, studio créatif spécialisé en identité visuelle",
 	},
-	{
-		image: "/projects/lerebootcamp-tracker.png",
-		title: "Le Reboot Camp - Tracker",
-		description:
-			"Application compagnon du programme Le Reboot Camp : suivi d'habitudes gamifié, niveaux, streaks et classement pour ancrer une routine durable.",
-		details: "Développement Fullstack • PayloadCMS, SQLite (Turso), Expo",
-		link: "https://play.google.com/store/apps/details?id=com.lerebootcamp.tracker",
-		imageAlt: "Icône de l'application Le RebootCamp Tracker, suivi d'habitudes",
-	},
+	// {
+	// 	image: "/projects/lerebootcamp-tracker.png",
+	// 	title: "Le Reboot Camp - Tracker",
+	// 	description:
+	// 		"Application compagnon du programme Le Reboot Camp : suivi d'habitudes gamifié, niveaux, streaks et classement pour ancrer une routine durable.",
+	// 	details: "Développement Fullstack • PayloadCMS, SQLite (Turso), Expo",
+	// 	link: "https://play.google.com/store/apps/details?id=com.lerebootcamp.tracker",
+	// 	imageAlt: "Icône de l'application Le RebootCamp Tracker, suivi d'habitudes",
+	// },
 ];
 
 export function Projects() {
