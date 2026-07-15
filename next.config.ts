@@ -1,7 +1,7 @@
 import createMdx from "@next/mdx";
+import type { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
 	reactStrictMode: true,
 	reactCompiler: true,
 	typedRoutes: true,
@@ -15,13 +15,17 @@ const nextConfig = {
 	},
 
 	pageExtensions: ["md", "mdx", "ts", "tsx"],
+
+	experimental: {
+		useTypeScriptCli: true,
+	},
 };
 
 const withMdx = createMdx({
 	extension: /\.(md|mdx)$/,
 });
 
-const withCustom = (config) => {
+const withCustom = (config: NextConfig) => {
 	if (process.env.NODE_ENV === "production") {
 		return {
 			...config,
