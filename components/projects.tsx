@@ -6,28 +6,19 @@ const projects = [
 	{
 		image: "/projects/mariol.png",
 		title: "Mariol",
-		description: "Une plateforme cloud qui permet à des utilisateurs non techniques de créer facilement des sites internet de qualité.",
-		details: "Co-fondateur et CTO de Mariol • Next.js, PayloadCMS, TypeScript • Architecture cloud scalable",
+		description: "Une plateforme modulaire de création de sites pour les créateurs et commerçants.",
+		details: "Co-fondateur et CTO • Next.js, TypeScript, PayloadCMS, Infrastructure Cloud",
 		link: "https://mariol.co",
-		imageAlt: "Logo de Mariol, plateforme cloud de création de sites internet",
+		imageAlt: "Logo de Mariol, plateforme de création de sites internet",
 	},
 	{
 		image: "/projects/maison-notre.png",
 		title: "Maison Nôtre",
-		description: "Studio créatif spécialisé en identité visuelle et direction artistique, au service des marques élégantes et ambitieuses.",
-		details: "Développement Fullstack • Next.js, PayloadCMS • Performance et design sur mesure",
+		description: "Développement du site vitrine d'un studio de direction artistique. Un travail poussé sur la fluidité des animations et le rendu visuel.",
+		details: "Développement Fullstack • Next.js, TypeScript, PayloadCMS",
 		link: "https://maison-notre.com",
 		imageAlt: "Logo de Maison Nôtre, studio créatif spécialisé en identité visuelle",
 	},
-	// {
-	// 	image: "/projects/lerebootcamp-tracker.png",
-	// 	title: "Le Reboot Camp - Tracker",
-	// 	description:
-	// 		"Application compagnon du programme Le Reboot Camp : suivi d'habitudes gamifié, niveaux, streaks et classement pour ancrer une routine durable.",
-	// 	details: "Développement Fullstack • PayloadCMS, SQLite (Turso), Expo",
-	// 	link: "https://play.google.com/store/apps/details?id=com.lerebootcamp.tracker",
-	// 	imageAlt: "Icône de l'application Le RebootCamp Tracker, suivi d'habitudes",
-	// },
 ];
 
 export function Projects() {
