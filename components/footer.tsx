@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { connection } from "next/server";
+import { Suspense } from "react";
 
 export function Footer() {
 	return (
@@ -12,8 +14,15 @@ export function Footer() {
 						Mentions légales
 					</Link>
 				</div>
-				<p className="text-muted-foreground">© {new Date().getFullYear()} Timothy Le Pallec. Tous droits réservés.</p>
+				<Suspense>
+					<Copyright />
+				</Suspense>
 			</div>
 		</footer>
 	);
+}
+
+export async function Copyright() {
+	await connection();
+	return <p className="text-muted-foreground">© {new Date().getFullYear()} Timothy Le Pallec. Tous droits réservés.</p>;
 }

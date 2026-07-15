@@ -45,7 +45,7 @@ export function FAQ() {
 	return (
 		<div>
 			<h2 className="font-mono font-semibold text-xl">Questions fréquentes</h2>
-			<Accordion collapsible defaultValue="item-0" type="single">
+			<Accordion collapsible type="single">
 				{faqItems.map((item, index) => (
 					<AccordionItem key={index} value={`item-${index}`}>
 						<AccordionTrigger>{item.question}</AccordionTrigger>

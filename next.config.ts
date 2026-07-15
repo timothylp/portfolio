@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
 
 	pageExtensions: ["md", "mdx", "ts", "tsx"],
 
+	cacheComponents: true,
+	partialPrefetching: true,
+
 	experimental: {
 		useTypeScriptCli: true,
 	},

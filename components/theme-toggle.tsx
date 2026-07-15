@@ -19,9 +19,7 @@ export function ThemeToggle() {
 		setTheme(THEMES[nextIndex]);
 	};
 
-	if (!theme) {
-		return null;
-	}
+	if (!theme) return null;
 
 	return (
 		<Button onClick={cycleTheme} size="sm" type="button" variant="ghost">
